@@ -8,6 +8,12 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   @Input() public hideSideBar = false;
+  public showStyle = {
+    width: "250px",
+  }
+  public hideStyle = {
+    width: "0px",
+  }
 
   constructor() { }
 
