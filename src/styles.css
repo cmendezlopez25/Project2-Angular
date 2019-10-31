@@ -20,3 +20,7 @@ button>img {
 .hamburger_btn:focus {
     outline: none;
 }
+
+.grn-shadow:focus{
+    box-shadow: -2px 1px 3px #61D38F, 2px 1px 3px #61D38F, -2px -1px 3px #61D38F, 2px -1px 3px #61D38F;
+}

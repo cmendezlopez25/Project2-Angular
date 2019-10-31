@@ -4,10 +4,8 @@ main{
 }
 
 .card{
-    width: 80rem;
-    max-width: 100%;
-    position: relative;
-    left: 8%;
+    margin: auto;
+    width: 80%;
     top: 8rem;
 }
 
@@ -24,18 +22,16 @@ main{
     font-size: 3.5rem;
 }
 
-.container{
-    height: 80%;
-}
-
 #login{
-    width: 45%;
+    float: left;
     border-right: 2px solid black;
-    padding-bottom: 3rem;
+    width: 50%;
+    height: 100%;
 }
 
 #register{
-    width: 45%;
+    float: right;
+    width: 50%;
 }
 
 .txt-ctr{
@@ -49,24 +45,19 @@ main{
 
 .row{
     height: 100%;
+    padding-bottom: 1cm;
+    padding-top: 1cm;
+    width: 100%;
 }
-
-.btn{
-    width: 40%;
-}
-
-
-
-
-
 
 /*
 * add to global styling
 */
 .btn{
+    width: 40%;
     background-color: #42AC6D;
     border-color: #42AC6D;
-    
+    color: white;
 }
 
 .btn:hover {
