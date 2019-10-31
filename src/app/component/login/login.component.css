@@ -1,0 +1,44 @@
+.card{
+    width: 80%;
+    margin: auto;
+}
+
+#login-register{
+    height: 80%;
+    
+}
+
+#logo{
+    margin: auto;
+}
+
+.txt-size-3-5em{
+    font-size: 3.5em;
+}
+
+#login{
+    width: 45%;
+    border-right: 2px solid black;
+}
+
+#register{
+    width: 45%;
+}
+
+.txt-ctr{
+    text-align: center;
+}
+
+.input-group{
+    margin: auto;
+    width: 80%;
+}
+
+.btn{
+    width: 40%
+}
+
+main{
+    height: 100vh;
+    background-color: darkgray;
+}
