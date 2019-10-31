@@ -8,7 +8,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class NavbarComponent implements OnInit {
 
-  public hideSideBar = true;
+  public hideSideBar = false;
   @Output() public toggleEvent = new EventEmitter(); 
 
   constructor() { }
