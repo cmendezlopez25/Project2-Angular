@@ -1,26 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-li>a{
-    font-size:20px;
+.bg-color {
+    background-color: #0B2530;
 }
-
-
-button>img {
-    width:50px; 
-    height: 50px;
-    margin-right:20px;
-}
-
-
-/* ============ class ================= */
-.hamburger_btn {
-    background-color: rgb(52, 58, 64); 
-    border: 0px;
-    margin-right: 20px;
-}
-.hamburger_btn:focus {
-    outline: none;
-}
-
 .grn-shadow:focus{
     box-shadow: -2px 1px 3px #61D38F, 2px 1px 3px #61D38F, -2px -1px 3px #61D38F, 2px -1px 3px #61D38F;
 }

@@ -7,5 +7,6 @@ import { Component, Input, Output } from '@angular/core';
 })
 export class AppComponent {
   public title = 'Project2-Angular';
+
   @Output() public hideSideBar = false;
 }

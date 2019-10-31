@@ -1,0 +1,120 @@
+.sidebar-sticky {
+    
+    height: 100%;
+    width: 0px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+}
+/* rgb(52, 58, 64) */
+/* #0B2530 */
+.sidebar-sticky a{
+    display: block;
+}
+
+.nav-item {
+    padding: 15px;
+}
+
+.nav-btn {
+    background-color:transparent;
+    border: 0px;
+    font-size: 2vi;
+    color: #5FA6C5;
+    margin-top: 5px;
+    padding-left: 0px;
+}
+.nav-btn:focus {
+    outline: none;
+}
+.nav-item:hover {
+    background-color: #174252;
+}
+
+.modal{
+    top: 100px;
+    right: 100px;
+    bottom: 0;
+    left: 100px;
+    overflow: auto;
+    overflow-y: auto;   
+}
+
+
+
+/* === check box === */
+/* The container */
+.container-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    margin-top: 10px;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container-checkbox input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container-checkbox input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container-checkbox .checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 10px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .fix {
+    position: fixed;
+  }

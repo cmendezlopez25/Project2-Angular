@@ -1,0 +1,6 @@
+.sidebar-container { 
+    position: absolute;
+    height: 100%;
+    margin: 0px;
+    overflow: hidden;
+}
