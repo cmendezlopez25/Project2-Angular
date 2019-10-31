@@ -1,0 +1,38 @@
+.sidebar-sticky {
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /* background-color: #0B2530 ; */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+/* rgb(52, 58, 64) */
+/* #0B2530 */
+.sidebar-sticky a{
+    display: block;
+}
+
+.flex-column {
+    padding-top: 50px;
+}
+
+.nav-item {
+    padding: 15px;
+}
+
+.nav-btn {
+    background-color:transparent;
+    border: 0px;
+    font-size: 25px;
+    color: #5FA6C5;
+}
+.nav-btn:focus {
+    outline: none;
+}
+.nav-item:hover {
+    background-color: #174252;
+}
