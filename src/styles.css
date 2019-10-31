@@ -2,6 +2,7 @@
 .bg-color {
     background-color: #0B2530;
 }
+
 .grn-shadow:focus{
     box-shadow: -2px 1px 3px #61D38F, 2px 1px 3px #61D38F, -2px -1px 3px #61D38F, 2px -1px 3px #61D38F;
 }
