@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,11 +8,14 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   @Input() public hideSideBar = false;
+
+  public selectedAccount = "";
+
   public showStyle = {
-    width: "250px",
+    width: "250px"
   }
   public hideStyle = {
-    width: "0px",
+    width: "0px"
   }
 
   constructor() { }
@@ -20,4 +23,8 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
   }
 
+  public getAccountName(event) {
+    this.selectedAccount = event.target.innerText;
+    console.log(this.selectedAccount);
+  }
 }
