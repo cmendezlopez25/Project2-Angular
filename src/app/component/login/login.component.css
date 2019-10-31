@@ -1,24 +1,43 @@
 .card{
     width: 80%;
+    position: relative;
+    top: 10%;
     margin: auto;
 }
 
 #login-register{
-    height: 80%;
-    
+    height: 80%;    
 }
 
 #logo{
-    margin: auto;
+    position: relative;
+    left: 45%;
+
+}
+
+#logo-img{
+    height: auto; 
+    width: auto; 
+    max-width: 10%; 
+    max-height: 10%;
 }
 
 .txt-size-3-5em{
     font-size: 3.5em;
 }
 
+.container{
+    height: 80%;
+}
+
 #login{
     width: 45%;
     border-right: 2px solid black;
+}
+
+.v1{
+    position: absolute;
+    right: 50%;
 }
 
 #register{
@@ -34,11 +53,32 @@
     width: 80%;
 }
 
+.row{
+    height: 100%;
+}
+
 .btn{
-    width: 40%
+    width: 40%;
 }
 
 main{
     height: 100vh;
-    background-color: darkgray;
+    background-color: #0B2530;
+}
+
+
+
+
+/*
+* add to global styling
+*/
+.btn{
+    background-color: #42AC6D;
+    border-color: #42AC6D;
+    
+}
+
+.btn:hover {
+    background-color: #175E34;
+    border-color: #175E34;
 }
