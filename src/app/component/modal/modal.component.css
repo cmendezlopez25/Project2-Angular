@@ -1,0 +1,12 @@
+.remove-btn {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    color: red;
+}
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0rem;
+}
