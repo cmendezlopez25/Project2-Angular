@@ -11,6 +11,13 @@ export class ModalComponent {
   closeResult: string;
   @Input() public modalTitle="";
 
+  // This is just a placeholder
+  public members = [
+    {email: "Ricky@email.com", role: "Owner"},
+    {email: "Jane@email.com", role: "Admin"},
+    {email: "Jacob@email.com", role: "Moderator"}
+  ];
+
   constructor(private modalService: NgbModal) {}
 
   open(content) {
@@ -28,6 +35,15 @@ export class ModalComponent {
       return 'by clicking on a backdrop';
     } else {
       return  `with: ${reason}`;
+    }
+  }
+
+  public deleteAccount() {
+    if (confirm("Are you sure you want to delete " + this.modalTitle + "?")) {
+      console.log("yes");
+    }
+    else {
+      console.log("no");
     }
   }
 }
