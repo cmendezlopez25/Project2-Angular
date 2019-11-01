@@ -10,7 +10,7 @@ export class SidebarComponent implements OnInit {
   @Input() public hideSideBar = false;
 
   public selectedAccount = "";
-
+  public accountList = ["Example Account 1", "Example Acount 2"];
   public showStyle = {
     width: "250px"
   }

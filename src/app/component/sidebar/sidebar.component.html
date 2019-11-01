@@ -1,21 +1,14 @@
 
 <div [ngStyle]="hideSideBar?hideStyle:showStyle" class="sidebar-sticky bg-color">
-    <ul class="nav flex-column">
+    <ul *ngFor="let accName of accountList" class="nav flex-column">
         <li style="overflow: hidden; white-space:nowrap" class="nav-item">
             <label class="container-checkbox">
                 <input type="checkbox" checked="checked">
-                <app-modal [modalTitle]="selectedAccount"></app-modal>
+                <app-modal [modalTitle]="accName"></app-modal>
                 <span class="checkmark"></span>
             </label>
         </li>
 
-        <li style="overflow: hidden; white-space:nowrap" class="nav-item">
-            <label class="container-checkbox">
-                <input type="checkbox">
-                <app-modal [modalTitle]="selectedAccount"></app-modal>
-                <span class="checkmark"></span>
-            </label>
-        </li> 
     </ul>
     </div>
 

@@ -7,6 +7,7 @@
   </div>
   <div class="modal-body">
     <form>
+      <input type="text" [value]="modalTitle"/>
       <div class="form-group">
         <label for="dateOfBirth">Date of birth</label>
         <div class="input-group">
@@ -23,4 +24,4 @@
   </div>
 </ng-template>
 
-<button class="btn btn-lg" (click)="open(content)">Example Account</button>
+<button class="btn btn-lg" (click)="open(content)" style="color: white">{{modalTitle}}</button>
