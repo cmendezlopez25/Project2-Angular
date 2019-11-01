@@ -4,9 +4,7 @@
         <li style="overflow: hidden; white-space:nowrap" class="nav-item">
             <label class="container-checkbox">
                 <input type="checkbox" checked="checked">
-                <button type="button" class="nav-btn"data-toggle="modal" data-target="#exampleModal" (click)="getAccountName($event)">
-                    Example Account
-                </button>
+                <app-modal [modalTitle]="selectedAccount"></app-modal>
                 <span class="checkmark"></span>
             </label>
         </li>
@@ -14,23 +12,10 @@
         <li style="overflow: hidden; white-space:nowrap" class="nav-item">
             <label class="container-checkbox">
                 <input type="checkbox">
-                <button type="button" class="nav-btn"data-toggle="modal" data-target="#exampleModal2" (click)="getAccountName($event)">
-                    Example account 2
-                </button>
+                <app-modal [modalTitle]="selectedAccount"></app-modal>
                 <span class="checkmark"></span>
             </label>
         </li> 
     </ul>
     </div>
 
-
-<!-- Modal -->
-<div class="modal fade fix" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div>test</div>
-    <app-modal [modalTitle]="selectedAccount"></app-modal>
-</div>
-
-<!-- Modal -->
-<div class="modal fade fix" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <app-modal [modalTitle]="selectedAccount"></app-modal>
-</div>
