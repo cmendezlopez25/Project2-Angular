@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { ModalComponent } from './modal/modal.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { ModalComponent } from './component/modal/modal.component';
 import { LoginComponent } from './component/login/login.component';
+import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LoginComponent } from './component/login/login.component';
     NavbarComponent,
     SidebarComponent,
     ModalComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
