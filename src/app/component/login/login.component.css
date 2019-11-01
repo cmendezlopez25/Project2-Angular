@@ -1,0 +1,70 @@
+main{
+    min-height: 100vh;
+}
+
+.card{
+    margin: auto;
+    width: 80%;
+    top: 8rem;
+}
+
+#logo-img{
+    position: relative;
+    left: 45%;
+    height: auto; 
+    width: auto; 
+    max-width: 10%;
+    max-height: 10%;
+}
+
+.txt-size-3-5em{
+    font-size: 3.5rem;
+}
+
+#login{
+    float: left;
+    border-right: 2px solid black;
+    width: 50%;
+    height: 100%;
+}
+
+#register{
+    float: right;
+    width: 50%;
+}
+
+.txt-ctr{
+    text-align: center;
+}
+
+.input-group{
+    margin: auto;
+    width: 80%;
+}
+
+.row{
+    height: 100%;
+    padding-bottom: 1cm;
+    padding-top: 1cm;
+    width: 100%;
+}
+
+/*
+* add to global styling
+*/
+.btn{
+    width: 40%;
+    background-color: #42AC6D;
+    border-color: #42AC6D;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #175E34;
+    border-color: #175E34;
+}
+
+.btn:active{
+    background-color: #0B361C;
+    border-color: #0B361C;
+}
