@@ -2,19 +2,21 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {User} from '../user';
+import { UrlList } from '../service/url.list';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  addUser(user: User): Observable<User>{
+  urlList = new UrlList();
 
-    return 
-  }
+  loginUrl = this.urlList.loginUrl;
 
-  getUser(email: String): void{
+  user: User;
 
+  postUser(): Observable<User>{
+    return this.http.post<User>(this.loginUrl, this.user);
   }
 
   constructor(private http: HttpClient) { }
