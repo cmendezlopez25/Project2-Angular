@@ -1,0 +1,28 @@
+<ng-template #content let-modal>
+	<form>
+		<div class="modal-header">
+			<h5 class="modal-title" id="modal-basic-title">
+				<input type="text" [value]="modalTitle"/>
+			</h5>
+			<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<table class="table table-borderless">
+					<tr *ngFor="let member of members">
+						<td>{{member.email}}</td>
+						<td>{{member.role}}</td>
+						<td><button type="button" class="remove-btn">x</button></td>
+					</tr>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger mr-auto" (click)="deleteAccount()">Delete</button>
+			<button type="button" class="btn btn-secondary" (click)="modal.close('Close clicked')">Close</button>
+			<button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Save</button>
+		</div>
+	</form>
+</ng-template>
+
+<button class="btn btn-lg" (click)="open(content)" style="color: white">{{modalTitle}}</button>
