@@ -13,10 +13,8 @@ export class LoginService {
 
   loginUrl = this.urlList.loginUrl;
 
-  user: User;
-
-  postUser(): Observable<User>{
-    return this.http.post<User>(this.loginUrl, this.user);
+  postUser(user: User): Observable<User>{
+    return this.http.post<User>(this.loginUrl, user);
   }
 
   constructor(private http: HttpClient) { }
