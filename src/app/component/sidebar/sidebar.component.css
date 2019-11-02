@@ -118,16 +118,3 @@
   .fix {
     position: fixed;
   }
-
-  .add-btn:hover {
-    border-color: #42ac6d;
-    color:#fff;
-    background-color:#42ac6d;
-  }
-
-  .add-btn {
-    color: #42ac6d;
-    background-color: transparent;
-    border-color: #42ac6d;
-    margin-bottom: 10px;
-  }

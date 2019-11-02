@@ -1,7 +1,7 @@
 
 <div [ngStyle]="hideSideBar?hideStyle:showStyle" class="sidebar-sticky bg-color">
     <div>
-        <button class="btn btn-outline-info add-btn" style="margin-left:50px; overflow: hidden; white-space: nowrap;">+ Add Account</button>
+        <app-add-modal></app-add-modal>
     </div>
     <ul *ngFor="let accName of accountList" class="nav flex-column">
         <li style="overflow: hidden; white-space:nowrap" class="nav-item">

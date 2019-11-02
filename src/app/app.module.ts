@@ -12,6 +12,7 @@ import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
+import { AddModalComponent } from './component/add-modal/add-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './component/home/home.component';
     SidebarComponent,
     ModalComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AddModalComponent
   ],
   imports: [
     BrowserModule,

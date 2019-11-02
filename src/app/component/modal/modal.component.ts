@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { RolesService } from 'src/app/service/util/roles.service';
 
 @Component({
   selector: 'app-modal',
@@ -9,8 +10,11 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalComponent {
   closeResult: string;
-  @Input() public modalTitle="";
 
+  @Input() public modalTitle="";
+  
+  public roles = this._roles.getRoles();
+  
   // This is just a placeholder
   public members = [
     {email: "Ricky@email.com", role: "Owner"},
@@ -18,9 +22,7 @@ export class ModalComponent {
     {email: "Jacob@email.com", role: "Moderator"}
   ];
 
-  public roles = ["Owner", "Admin", "Moderator", "Employee"];
-
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private _roles: RolesService) {}
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
