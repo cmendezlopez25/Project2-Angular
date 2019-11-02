@@ -1,0 +1,11 @@
+Palette
+
+5fa6cf - lightblue text
+0b2530 - dark blue background color
+174252 - lighter hover over bg color
+
+42ac6d - light green btn bg
+175e34 - darker btn hover bg
+0b361c - darkest btn click color
+
+61d38f - light green input/btn shadow
