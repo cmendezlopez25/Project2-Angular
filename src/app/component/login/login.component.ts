@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/service/login.service';
+import { User } from 'src/app/user';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +25,20 @@ export class LoginComponent implements OnInit {
       this.loginSuccess = false;
       return this.loginSuccess;
     }
+    let user = new User();
+    user.email = this.loginEmail;
+    user.password = this.loginPassword;
 
+    this.loginService.postUser(user)
+    .subscribe(user => {
+      if(!user){
+        this.loginSuccess = false;
+      }
+      else{
+        console.log("user has been verified and loged in")
+        //TODO route to home page
+      }
+    });
     this.loginSuccess = true;
     return this.loginSuccess;
   }
@@ -48,7 +63,7 @@ export class LoginComponent implements OnInit {
     return this.registerSuccess;
   }
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
