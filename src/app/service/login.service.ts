@@ -21,7 +21,7 @@ export class LoginService {
     };
 
     this.http.post(
-      'http://localhost:8080/Project2/login', 
+      this.loginUrl, 
       loginRequest,
       {responseType: 'text'}
     ).subscribe(responseData => {
