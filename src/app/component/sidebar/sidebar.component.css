@@ -119,11 +119,15 @@
     position: fixed;
   }
 
-  .add-btn {
-    border: none;
-    font-size: 18px;
+  .add-btn:hover {
+    border-color: #42ac6d;
     color:#fff;
     background-color:#42ac6d;
     margin-left: 50px;
+  }
 
+  .add-btn {
+    color: #42ac6d;
+    background-color: transparent;
+    border-color: #42ac6d;
   }
