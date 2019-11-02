@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,22 @@ export class LoginComponent implements OnInit {
   lastName = "";
   registerSuccess = true;
 
-  login(): boolean{
+  login(email: string, password: string): boolean{
+    let loginRequest = {
+      email: email, 
+      password: password
+    };
+
+    console.log(loginRequest);
+
+    this.http.post(
+      'http://localhost:8080/Project2/login', 
+      loginRequest,
+      {responseType: 'text'}
+    ).subscribe(responseData => {
+      console.log(responseData);
+    });
+
     if (this.loginEmail.length === 0 || this.loginPassword.length === 0){
       this.loginSuccess = false;
       return this.loginSuccess;
@@ -48,7 +64,7 @@ export class LoginComponent implements OnInit {
     return this.registerSuccess;
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }

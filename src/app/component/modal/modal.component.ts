@@ -18,6 +18,8 @@ export class ModalComponent {
     {email: "Jacob@email.com", role: "Moderator"}
   ];
 
+  public roles = ["Owner", "Admin", "Moderator", "Employee"];
+
   constructor(private modalService: NgbModal) {}
 
   open(content) {
@@ -39,11 +41,18 @@ export class ModalComponent {
   }
 
   public deleteAccount() {
+    // Placeholder
     if (confirm("Are you sure you want to delete " + this.modalTitle + "?")) {
       console.log("yes");
+      this.modalService.dismissAll();
     }
     else {
       console.log("no");
     }
+  }
+
+  public saveAccount() {
+    // Placeholder
+    this.modalService.dismissAll();
   }
 }
