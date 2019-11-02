@@ -118,3 +118,11 @@
   .fix {
     position: fixed;
   }
+
+  .add-btn {
+    border: none;
+    font-size: 18px;
+    color:#fff;
+    background-color:#42ac6d;
+    margin-left: 50px;
+  }
