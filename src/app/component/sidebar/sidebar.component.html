@@ -1,5 +1,8 @@
 
 <div [ngStyle]="hideSideBar?hideStyle:showStyle" class="sidebar-sticky bg-color">
+    <div>
+        <app-add-modal></app-add-modal>
+    </div>
     <ul *ngFor="let accName of accountList" class="nav flex-column">
         <li style="overflow: hidden; white-space:nowrap" class="nav-item">
             <label class="container-checkbox">

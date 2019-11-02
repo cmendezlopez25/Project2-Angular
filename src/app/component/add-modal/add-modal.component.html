@@ -1,0 +1,54 @@
+<ng-template #content let-modal>
+	<form>
+		<div class="modal-header">
+            <h5>Create Account</h5>
+			<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+            <form>
+                <div class="container">
+                    <h6 for="newAccName">Account Name</h6>
+                    <br>
+                    <div class="container input-group input-group-lg">
+                        <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="account name"/>
+                    </div>
+                    <hr/>
+                </div>
+                <div class="container">
+                <h6 for="email">Add Member</h6>
+                <table class="table table-borderless">
+                    <thead>
+                        <th>Member Email</th>
+                        <th>Role</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="example@email.com"/>
+                                </div>
+                            </td>
+                            <td>
+                                <select class="custom-select">
+                                    <option *ngFor="let role of roles" [value]=role>
+                                        {{role}}
+                                    </option>
+                                </select>
+                            </td>
+                            <!-- <td><button type="button" class="remove-btn">x</button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" (click)="modal.close('Close clicked')">Close</button>
+			<button type="button" class="btn btn-primary">Save</button>
+		</div>
+	</form>
+</ng-template>
+
+<button class="btn btn-outline-info add-btn" style="margin-left:50px; overflow: hidden; white-space: nowrap;" (click)="open(content)">+ Add Account</button>
