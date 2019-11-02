@@ -20,7 +20,9 @@ export class LoginComponent implements OnInit {
   lastName = "";
   registerSuccess = true;
 
-  login(): boolean{
+  login(email: string, password: string): boolean{
+    this.loginService.postUser(email, password);
+    
     if (this.loginEmail.length === 0 || this.loginPassword.length === 0){
       this.loginSuccess = false;
       return this.loginSuccess;
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
     user.email = this.loginEmail;
     user.password = this.loginPassword;
 
-    this.loginService.postUser(user)
+    /*this.loginService.postUser(user)
     .subscribe(user => {
       if(!user){
         this.loginSuccess = false;
@@ -38,7 +40,7 @@ export class LoginComponent implements OnInit {
         console.log("user has been verified and loged in")
         //TODO route to home page
       }
-    });
+    });*/
     this.loginSuccess = true;
     return this.loginSuccess;
   }

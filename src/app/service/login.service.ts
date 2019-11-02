@@ -14,8 +14,19 @@ export class LoginService {
 
   loginUrl = this.urlList.loginUrl;
 
-  postUser(user: User): Observable<User>{
-    return this.http.post<User>(this.loginUrl, user);
+  postUser(email: string, password: string) {
+    let loginRequest = {
+      email: email, 
+      password: password
+    };
+
+    this.http.post(
+      'http://localhost:8080/Project2/login', 
+      loginRequest,
+      {responseType: 'text'}
+    ).subscribe(responseData => {
+      console.log(responseData);
+    });
   }
 
   constructor(private http: HttpClient) { }
