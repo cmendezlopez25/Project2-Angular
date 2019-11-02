@@ -7,7 +7,7 @@
     left: 0;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 /* rgb(52, 58, 64) */
 /* #0B2530 */
@@ -123,11 +123,11 @@
     border-color: #42ac6d;
     color:#fff;
     background-color:#42ac6d;
-    margin-left: 50px;
   }
 
   .add-btn {
     color: #42ac6d;
     background-color: transparent;
     border-color: #42ac6d;
+    margin-bottom: 10px;
   }
