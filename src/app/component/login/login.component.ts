@@ -10,8 +10,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  loginEmail = "";
-  loginPassword = "";
   loginSuccess = false;
 
   registerEmail = "";
@@ -22,27 +20,27 @@ export class LoginComponent implements OnInit {
   registerSuccess = false;
 
   login(email: string, password: string): boolean{
-    this.loginService.postUser(email, password);
+    console.log('password: ' + password + ' ---------------- email: ' + email);
     
     if (email.length === 0 || password.length === 0){
+      console.log('inside if statement with length === 0');
       this.loginSuccess = false;
       return this.loginSuccess;
     }
+
+    if (!email.includes('@')) {
+      this.loginSuccess = false;
+      return this.loginSuccess;
+    }
+
     let user = new User();
     user.email = email;
     user.password = password;
 
-    /*this.loginService.postUser(user)
-    .subscribe(user => {
-      if(!user){
-        this.loginSuccess = false;
-      }
-      else{
-        console.log("user has been verified and loged in")
-        //TODO route to home page
-      }
-    });*/
+    console.log(this.loginSuccess);
     this.loginSuccess = true;
+    console.log(this.loginSuccess);
+    this.loginService.postUser(email, password);
     return this.loginSuccess;
   }
 

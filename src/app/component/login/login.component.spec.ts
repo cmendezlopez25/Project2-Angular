@@ -33,12 +33,16 @@ describe('LoginComponent', () => {
   });
 
   it('should be true because they\'re good input', () => {
-    expect(component.login('ricky@ricky.ricky', 'password')).toBe(true);
+    expect(component.login('ricky@ricky.com', 'password')).toBe(true);
   });
   
   it('should be false because they\'re empty strings', () => {
     expect(component.login('', '')).toBe(false);
   });
+
+  it('should be false because they\'re missing @', () => {
+    expect(component.login('carlos', 'burrito')).toBe(true);
+  })
 
   it('should be true because they\'re good input', () => {
     expect(component.register('ricky@ricky.ricky', 'password', 'password', 'Ricky', 'Wang')).toBe(true);
