@@ -31,4 +31,19 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be true', () => {
+    expect(component.login('ricky@ricky.ricky', 'password')).toBe(true);
+  });
+  it('should be false', () => {
+    expect(component.login('', '')).toBe(false);
+  });
+
+  it('should be true', () => {
+    expect(component.register('ricky@ricky.ricky', 'password', 'password', 'Ricky', 'Wang')).toBe(true);
+  });
+  it('should be false', () => {
+    expect(component.register('', '', '', '', '')).toBe(false);
+  });
+
 });
