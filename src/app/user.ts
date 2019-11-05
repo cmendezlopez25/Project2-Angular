@@ -1,6 +1,7 @@
 export class User{
-    email: String;
-    password: String;
-    firstName: String;
-    lastName: String;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    firstName: string;
+    lastName: string;
 }
