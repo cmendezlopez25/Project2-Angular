@@ -24,7 +24,7 @@ export class ModalComponent {
 
   constructor(private modalService: NgbModal, private _roles: RolesService) {}
 
-  open(content: String) {
+  open(content: string) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
