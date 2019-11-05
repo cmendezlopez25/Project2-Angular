@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     return this.loginSuccess;
   }
 
-  register(email: String, password: String, confirmPassword: String, firstname: String, lastname: String): boolean{
+  register(email: string, password: string, confirmPassword: string, firstname: string, lastname: string): boolean{
     if (email.length === 0 || password.length === 0 || confirmPassword.length === 0 || firstname.length === 0 || lastname.length === 0){
       this.registerSuccess = false;
       return this.registerSuccess;
@@ -61,6 +61,11 @@ export class LoginComponent implements OnInit {
       this.registerSuccess = false;
       return this.registerSuccess;
     }
+    this.registerEmail = email;
+    this.registerPassword = password;
+    this.firstName = firstname;
+    this.lastName = lastname;
+    this.confirmPassword = confirmPassword;
 
     this.registerSuccess = true;
     return this.registerSuccess;
