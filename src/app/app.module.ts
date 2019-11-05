@@ -32,7 +32,7 @@ import { AddModalComponent } from './component/add-modal/add-modal.component';
   ],
   exports: [
     SidebarComponent,
-    NavbarComponent,
+    NavbarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

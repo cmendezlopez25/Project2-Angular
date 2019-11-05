@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalComponent } from './modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 describe('ModalComponent', () => {
   let component: ModalComponent;
@@ -22,4 +23,11 @@ describe('ModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should open once', () => {
+    spyOn(component, 'open');
+    component.open('myContent');
+    expect(component.open).toHaveBeenCalledTimes(1);
+    expect(component.open).toHaveBeenCalledWith('myContent');
+  })
 });

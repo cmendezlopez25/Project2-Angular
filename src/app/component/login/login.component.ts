@@ -12,25 +12,25 @@ export class LoginComponent implements OnInit {
 
   loginEmail = "";
   loginPassword = "";
-  loginSuccess = true;
+  loginSuccess = false;
 
   registerEmail = "";
   registerPassword = "";
   confirmPassword = "";
   firstName = "";
   lastName = "";
-  registerSuccess = true;
+  registerSuccess = false;
 
   login(email: string, password: string): boolean{
     this.loginService.postUser(email, password);
     
-    if (this.loginEmail.length === 0 || this.loginPassword.length === 0){
+    if (email.length === 0 || password.length === 0){
       this.loginSuccess = false;
       return this.loginSuccess;
     }
     let user = new User();
-    user.email = this.loginEmail;
-    user.password = this.loginPassword;
+    user.email = email;
+    user.password = password;
 
     /*this.loginService.postUser(user)
     .subscribe(user => {
@@ -46,21 +46,26 @@ export class LoginComponent implements OnInit {
     return this.loginSuccess;
   }
 
-  register(): boolean{
-    if (this.registerEmail.length === 0 || this.registerPassword.length === 0 || this.confirmPassword.length === 0 || this.firstName.length === 0 || this.lastName.length === 0){
+  register(email: string, password: string, confirmPassword: string, firstname: string, lastname: string): boolean{
+    if (email.length === 0 || password.length === 0 || confirmPassword.length === 0 || firstname.length === 0 || lastname.length === 0){
       this.registerSuccess = false;
       return this.registerSuccess;
     }
 
-    if (!this.registerEmail.includes('@')) {
+    if (!email.includes('@')) {
       this.registerSuccess = false;
       return this.registerSuccess;
     }
 
-    if(this.registerPassword !== this.confirmPassword){
+    if(password !== confirmPassword){
       this.registerSuccess = false;
       return this.registerSuccess;
     }
+    this.registerEmail = email;
+    this.registerPassword = password;
+    this.firstName = firstname;
+    this.lastName = lastname;
+    this.confirmPassword = confirmPassword;
 
     this.registerSuccess = true;
     return this.registerSuccess;

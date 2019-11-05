@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
+
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -14,7 +15,9 @@ describe('LoginComponent', () => {
         FormsModule,
         HttpClientTestingModule
       ],
-      declarations: [ LoginComponent ]
+      declarations: [ 
+        LoginComponent
+       ]
     })
     .compileComponents();
   }));
@@ -28,4 +31,19 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be true', () => {
+    expect(component.login('ricky@ricky.ricky', 'password')).toBe(true);
+  });
+  it('should be false', () => {
+    expect(component.login('', '')).toBe(false);
+  });
+
+  it('should be true', () => {
+    expect(component.register('ricky@ricky.ricky', 'password', 'password', 'Ricky', 'Wang')).toBe(true);
+  });
+  it('should be false', () => {
+    expect(component.register('', '', '', '', '')).toBe(false);
+  });
+
 });
