@@ -32,18 +32,35 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be true', () => {
-    expect(component.login('ricky@ricky.ricky', 'password')).toBe(true);
+  it('should be true because they\'re good input', () => {
+    expect(component.login('ricky@ricky.com', 'password')).toBe(true);
   });
-  it('should be false', () => {
+  
+  it('should be false because they\'re empty strings', () => {
     expect(component.login('', '')).toBe(false);
   });
 
-  it('should be true', () => {
+  it('should be false because they\'re missing @', () => {
+    expect(component.login('carlos', 'burrito')).toBe(true);
+  })
+
+  it('should be true because they\'re good input', () => {
     expect(component.register('ricky@ricky.ricky', 'password', 'password', 'Ricky', 'Wang')).toBe(true);
   });
-  it('should be false', () => {
+
+
+  it('should be false because they\'re empty strings', () => {
     expect(component.register('', '', '', '', '')).toBe(false);
+  });
+
+  it('should be false because there is no @ symbol', () => {
+    expect(component.register('carlos', 'burrito', 'burrito', 'Carlos', 'Mendez'))
+    .toBe(false);
+  });
+
+  it('should be false because the passwords don\'t match', () => {
+    expect(component.register('carlos@email.com', 'burrito', 'burritoSupreme', 'Carlos', 'Mendez'))
+    .toBe(false);
   });
 
 });
