@@ -22,4 +22,10 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be', () => {
+    expect(component.hideSideBar).toBe(false);
+    component.toggleSideBar();
+    expect(component.hideSideBar).toBe(true);
+  })
 });
