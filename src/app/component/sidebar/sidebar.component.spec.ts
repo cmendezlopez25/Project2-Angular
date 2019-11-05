@@ -10,12 +10,11 @@ describe('SidebarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      
       declarations: [ 
         SidebarComponent,
         AddModalComponent,
         ModalComponent
-      ]
+       ]
     })
     .compileComponents();
   }));
