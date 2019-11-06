@@ -21,6 +21,13 @@ main{
     font-size: 3.5rem;
 }
 
+.error-msg {
+    font-size: 15px;
+    border: 2px red solid;
+    color: red;
+    padding:2px;
+}
+
 #login{
     float: left;
     border-right: 2px solid black;
