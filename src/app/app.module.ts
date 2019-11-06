@@ -13,6 +13,8 @@ import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
 import { AddModalComponent } from './component/add-modal/add-modal.component';
 
+import { LoginService } from './service/login.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,7 @@ import { AddModalComponent } from './component/add-modal/add-modal.component';
     SidebarComponent,
     NavbarComponent
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

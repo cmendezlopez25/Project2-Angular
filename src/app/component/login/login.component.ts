@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/service/login.service';
 import { User } from 'src/app/user';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +11,9 @@ export class LoginComponent implements OnInit {
 
   loginSuccess = false;
 
+  loginUser = new User();
+  registerUser = new User();
+
   registerEmail = "";
   registerPassword = "";
   confirmPassword = "";
@@ -19,28 +21,29 @@ export class LoginComponent implements OnInit {
   lastName = "";
   registerSuccess = false;
 
-  login(email: string, password: string): boolean{
-    console.log('password: ' + password + ' ---------------- email: ' + email);
+  login(user: User): boolean{
+    console.log(user);
     
-    if (email.length === 0 || password.length === 0){
+    if (user.email.length === 0 || user.password.length === 0){
       console.log('inside if statement with length === 0');
       this.loginSuccess = false;
       return this.loginSuccess;
     }
 
-    if (!email.includes('@')) {
+    if (!user.email.includes('@')) {
       this.loginSuccess = false;
       return this.loginSuccess;
     }
 
-    let user = new User();
-    user.email = email;
-    user.password = password;
 
     console.log(this.loginSuccess);
     this.loginSuccess = true;
     console.log(this.loginSuccess);
-    this.loginService.postUser(email, password);
+    this.loginService.loginUser(user)
+      .subscribe(
+        res => console.log(res),
+        err => console.log(err)
+      );
     return this.loginSuccess;
   }
 
