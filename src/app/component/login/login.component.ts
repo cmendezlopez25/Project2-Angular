@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
       this.loginErrorMsg = "Email must contain @ symbol.";
       return;
     }
+
+    this.loginErrorMsg = "";
   
     this.loginService.loginUser(user)
       .subscribe(
@@ -64,13 +66,22 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    this.registerErrorMsg = "";
+
     this.loginService.registerUser(user)
       .subscribe(
         res => {
-          console.log(res)
+          if (!res) {
+            console.log("res is null")
+            this.registerErrorMsg = "Email is already in use.";
+            console.log(this.registerErrorMsg);
+          }
+          else {
+            console.log(res);
+          }
         },
         err => {
-          console.log(err)
+          this.registerErrorMsg = "Failed to contact server.";
         }
       );
   }
