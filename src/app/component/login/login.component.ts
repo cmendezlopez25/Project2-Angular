@@ -47,8 +47,8 @@ export class LoginComponent implements OnInit {
     return this.loginSuccess;
   }
 
-  register(email: string, password: string, confirmPassword: string, firstname: string, lastname: string): boolean{
-    if (email.length === 0 || password.length === 0 || confirmPassword.length === 0 || firstname.length === 0 || lastname.length === 0){
+  register(user: User): boolean{
+    if (this.registerUser.email.length === 0 || this.registerUser.password.length === 0 || this.registerUser.confirmPassword.length === 0 || this.registerUser.firstName.length === 0 || this.registerUser.lastName.length === 0){
       this.registerSuccess = false;
       return this.registerSuccess;
     }
