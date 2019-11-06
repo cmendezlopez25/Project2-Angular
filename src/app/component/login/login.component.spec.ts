@@ -41,7 +41,7 @@ describe('LoginComponent', () => {
   });
 
   it('should be false because they\'re missing @', () => {
-    expect(component.login('carlos', 'burrito')).toBe(true);
+    expect(component.login('carlos', 'burrito')).toBe(false);
   })
 
   it('should be true because they\'re good input', () => {
