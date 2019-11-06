@@ -14,16 +14,9 @@ export class LoginComponent implements OnInit {
   loginUser = new User();
   registerUser = new User();
 
-  registerEmail = "";
-  registerPassword = "";
-  confirmPassword = "";
-  firstName = "";
-  lastName = "";
   registerSuccess = false;
 
   login(user: User): boolean{
-    console.log(user);
-    
     if (user.email.length === 0 || user.password.length === 0){
       console.log('inside if statement with length === 0');
       this.loginSuccess = false;
@@ -36,7 +29,6 @@ export class LoginComponent implements OnInit {
     }
 
 
-    console.log(this.loginSuccess);
     this.loginSuccess = true;
     console.log(this.loginSuccess);
     this.loginService.loginUser(user)
@@ -48,25 +40,30 @@ export class LoginComponent implements OnInit {
   }
 
   register(user: User): boolean{
-    if (this.registerUser.email.length === 0 || this.registerUser.password.length === 0 || this.registerUser.confirmPassword.length === 0 || this.registerUser.firstName.length === 0 || this.registerUser.lastName.length === 0){
+    if (this.registerUser.email.length === 0 || 
+        this.registerUser.password.length === 0 || 
+        this.registerUser.confirmPassword.length === 0 || 
+        this.registerUser.firstName.length === 0 || 
+        this.registerUser.lastName.length === 0){
       this.registerSuccess = false;
       return this.registerSuccess;
     }
 
-    if (!email.includes('@')) {
+    if (!this.registerUser.email.includes('@')) {
       this.registerSuccess = false;
       return this.registerSuccess;
     }
 
-    if(password !== confirmPassword){
+    if(this.registerUser.password !== this.registerUser.confirmPassword){
       this.registerSuccess = false;
       return this.registerSuccess;
     }
-    this.registerEmail = email;
-    this.registerPassword = password;
-    this.firstName = firstname;
-    this.lastName = lastname;
-    this.confirmPassword = confirmPassword;
+
+    this.loginService.registerUser(user)
+      .subscribe(
+        res => console.log(res),
+        err => console.log(err)
+      );
 
     this.registerSuccess = true;
     return this.registerSuccess;
