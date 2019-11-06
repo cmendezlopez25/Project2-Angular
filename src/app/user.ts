@@ -4,4 +4,5 @@ export class User{
     confirmPassword: string;
     firstName: string;
     lastName: string;
+
 }
