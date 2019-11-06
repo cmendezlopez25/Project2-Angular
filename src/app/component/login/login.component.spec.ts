@@ -3,6 +3,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
+import { User } from 'src/app/user';
+import { userInfo } from 'os';
 
 
 describe('LoginComponent', () => {
@@ -33,15 +35,27 @@ describe('LoginComponent', () => {
   });
 
   it('should be true because they\'re good input', () => {
-    expect(component.login('ricky@ricky.com', 'password')).toBe(true);
+    let myUser = new User();
+    myUser.email = 'ricky@gmail.com';
+    myUser.password = 'rickyIsGreat';
+
+    expect(component.login(myUser)).toBe(true);
   });
   
   it('should be false because they\'re empty strings', () => {
-    expect(component.login('', '')).toBe(false);
+    let myUser = new User();
+    myUser.email = '';
+    myUser.password = '';
+
+    expect(component.login(myUser)).toBe(false);
   });
 
   it('should be false because they\'re missing @', () => {
-    expect(component.login('carlos', 'burrito')).toBe(false);
+    let myUser = new User();
+    myUser.email = 'carlos';
+    myUser.password = 'burrito';
+
+    expect(component.login(myUser)).toBe(false);
   })
 
   it('should be true because they\'re good input', () => {
