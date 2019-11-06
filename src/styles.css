@@ -5,6 +5,11 @@
 
 .grn-shadow:focus{
     box-shadow: -2px 1px 3px #61D38F, 2px 1px 3px #61D38F, -2px -1px 3px #61D38F, 2px -1px 3px #61D38F;
+    outline-color: #61D38F;
+}
+
+.grn-shadow:active{
+    box-shadow: -2px 1px 3px #61D38F, 2px 1px 3px #61D38F, -2px -1px 3px #61D38F, 2px -1px 3px #61D38F;   
 }
 
 .btn{
