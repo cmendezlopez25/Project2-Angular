@@ -13,7 +13,7 @@
 					<tr *ngFor="let member of members">
 						<td>{{member.email}}</td>
 						<td>
-							<select>
+							<select class = "grn-shadow">
 								<option *ngFor="let role of roles" [value]=role [selected]="role == member.role">
 									{{role}}
 								</option>
@@ -25,8 +25,8 @@
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-danger mr-auto" (click)="deleteAccount()">Delete</button>
-			<button type="button" class="btn btn-secondary" (click)="modal.close('Close clicked')">Close</button>
-			<button type="button" class="btn btn-primary" (click)="saveAccount()">Save</button>
+			<button type="button" class="btn grn-shadow" (click)="modal.close('Close clicked')">Close</button>
+			<button type="button" class="btn grn-shadow" (click)="saveAccount()">Save</button>
 		</div>
 	</form>
 </ng-template>
