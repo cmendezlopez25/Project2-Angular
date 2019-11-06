@@ -47,21 +47,21 @@ export class LoginComponent implements OnInit {
   }
 
   register(user: User): void{
-    if (!this.registerUser.email || 
-        !this.registerUser.password || 
-        !this.registerUser.confirmPassword || 
-        !this.registerUser.firstName || 
-        !this.registerUser.lastName){
+    if (!user.email || 
+        !user.password || 
+        !user.confirmPassword || 
+        !user.firstName || 
+        !user.lastName){
       this.registerErrorMsg = "None of the fields can be empty."
       return;
     }
 
-    if (!this.registerUser.email.includes('@')) {
+    if (!user.email.includes('@')) {
       this.registerErrorMsg = "Email must contain @ symbol.";
       return;
     }
 
-    if(this.registerUser.password !== this.registerUser.confirmPassword){
+    if(user.password !== user.confirmPassword){
       this.registerErrorMsg = "Passwords do not match.";
       return;
     }
