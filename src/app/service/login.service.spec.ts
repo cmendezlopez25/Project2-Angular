@@ -1,11 +1,11 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed, async, ComponentFixture, inject } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { LoginService } from './login.service';
 import { Component, DebugElement } from '@angular/core';
 import { LoginComponent } from '../component/login/login.component';
-
-
+import { Observable } from 'rxjs';
+import { User } from '../user';
 
 describe('LoginService', () => {
   let component: LoginComponent;
@@ -13,15 +13,15 @@ describe('LoginService', () => {
   let de: DebugElement;
 
   beforeEach(() => TestBed.configureTestingModule({
+    providers:[
+      LoginService
+    ],
     imports:[
-      HttpClientTestingModule
+      HttpClientTestingModule,
     ]
   }));
 
   let serviceStub: any;
-
-
-
     TestBed.configureTestingModule({
       
   });
@@ -30,4 +30,15 @@ describe('LoginService', () => {
     const service: LoginService = TestBed.get(LoginService);
     expect(service).toBeTruthy();
   });
+
+  xit('should log in the user',
+    inject([HttpTestingController, LoginService],
+    (httpMock: HttpTestingController, service: LoginService) =>
+    {
+      let myUser = new User();
+      service.loginUser(myUser).subscribe(data => {
+        
+      });
+    })
+  )
 });

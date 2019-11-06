@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
       return this.loginSuccess;
     }
 
-
     console.log(this.loginSuccess);
     this.loginSuccess = true;
     console.log(this.loginSuccess);

@@ -29,5 +29,5 @@ describe('SidebarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set the ')
+  xit('should set the ')
 });
