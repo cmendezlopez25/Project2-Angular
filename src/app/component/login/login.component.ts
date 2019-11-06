@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/service/login.service';
 import { User } from 'src/app/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,6 @@ export class LoginComponent implements OnInit {
   registerUser = new User();
 
   login(user: User): void{
-    console.log("1");
     if (!user.email || !user.password) {
       this.loginErrorMsg = "Email or password can't be empty.";
       return;
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
             console.log(this.loginErrorMsg);
           }
           else {
+            this.router.navigate(['/home']);
             console.log(res);
           }
         },
@@ -77,6 +78,7 @@ export class LoginComponent implements OnInit {
             console.log(this.registerErrorMsg);
           }
           else {
+            this.router.navigate(['/home']);
             console.log(res);
           }
         },
@@ -86,7 +88,7 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
