@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AccountListService } from 'src/app/service/account-list.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,7 +11,7 @@ export class SidebarComponent implements OnInit {
   @Input() public hideSideBar = false;
 
   public selectedAccount = "";
-  public accountList = ["Example Account 1", "Example Account 2"];
+  public accountList = [];
   public showStyle = {
     width: "250px"
   }
@@ -18,9 +19,13 @@ export class SidebarComponent implements OnInit {
     width: "0px"
   }
 
-  constructor() { }
+  constructor(private accList: AccountListService) {
+    
+  }
 
   ngOnInit() {
+    this.accountList = this.accList.getAccountList();
+    console.log(this.accountList);
   }
 
   public getAccountName(event) {

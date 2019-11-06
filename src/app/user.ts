@@ -1,8 +1,9 @@
 export class User{
-    email: string;
-    password: string;
-    confirmPassword: string;
-    firstName: string;
-    lastName: string;
-
+    constructor(
+        public email = "", 
+        public password = "", 
+        public confirmPassword = "", 
+        public firstName = "", 
+        public lastName = ""
+    ) {}
 }

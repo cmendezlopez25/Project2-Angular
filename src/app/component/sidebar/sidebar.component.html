@@ -3,11 +3,11 @@
     <div>
         <app-add-modal></app-add-modal>
     </div>
-    <ul *ngFor="let accName of accountList" class="nav flex-column">
+    <ul *ngFor="let account of accountList" class="nav flex-column">
         <li style="overflow: hidden; white-space:nowrap" class="nav-item">
             <label class="container-checkbox">
                 <input type="checkbox" checked="checked">
-                <app-modal [modalTitle]="accName"></app-modal>
+                <app-modal [modalTitle]="account.accountName"></app-modal>
                 <span class="checkmark"></span>
             </label>
         </li>
