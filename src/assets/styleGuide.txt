@@ -1,8 +1,10 @@
 Palette
+http://paletton.com/#uid=63r0u0klSnKhjHrjEu4o7gqpL9v
 
 5fa6cf - lightblue text
 0b2530 - dark blue background color
 174252 - lighter hover over bg color
+only use btn class, adding other classes like btn-primary will mess up the click color
 
 42ac6d - light green btn bg
 175e34 - darker btn hover bg
