@@ -16,9 +16,11 @@
 .btn:hover {
     background-color: #175E34;
     border-color: #175E34;
+    color: white;
 }
 
 .btn:active{
     background-color: #0B361C;
     border-color: #0B361C;
+    color: white;
 }

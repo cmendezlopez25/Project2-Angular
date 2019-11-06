@@ -15,14 +15,6 @@ export class LoginService {
   loginUrl = this.urlList.loginUrl;
   registerUrl = this.urlList.registerUrl;
 
-  postUser(email: string, password: string): Observable<any> {
-    let loginRequest = {
-      email: email, 
-      password: password
-    };
-    return this.http.post<any>(this.loginUrl, loginRequest);
-  }
-
   constructor(private http: HttpClient) { }
 
   loginUser(user: User): Observable<User> {

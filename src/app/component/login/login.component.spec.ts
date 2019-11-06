@@ -4,12 +4,13 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { User } from 'src/app/user';
-import { userInfo } from 'os';
-
+import { LoginService } from 'src/app/service/login.service';
+import { Observable } from 'rxjs';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let service: LoginService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,6 +20,9 @@ describe('LoginComponent', () => {
       ],
       declarations: [ 
         LoginComponent
+       ],
+       providers:[
+         LoginService
        ]
     })
     .compileComponents();
@@ -28,53 +32,96 @@ describe('LoginComponent', () => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    service = TestBed.get(LoginService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be true because they\'re good input', () => {
+  it('should login once', () => {
+    spyOn(service, 'loginUser').and.returnValue(new Observable<User>());
     let myUser = new User();
     myUser.email = 'ricky@gmail.com';
     myUser.password = 'rickyIsGreat';
 
-    expect(component.login(myUser)).toBe(true);
+    component.login(myUser);
+    expect(service.loginUser).toHaveBeenCalledTimes(1);
+    expect(service.loginUser).toHaveBeenCalledWith(myUser);
   });
   
-  it('should be false because they\'re empty strings', () => {
+  it('shouldn\'t login because there are empty strings', () => {
+    spyOn(service, 'loginUser').and.returnValue(new Observable<User>());
     let myUser = new User();
     myUser.email = '';
     myUser.password = '';
 
-    expect(component.login(myUser)).toBe(false);
+    component.login(myUser);
+    expect(service.loginUser).toHaveBeenCalledTimes(0);
   });
 
-  it('should be false because they\'re missing @', () => {
+  it('shouldn\'t login because there is no @', () => {
+    spyOn(service, 'loginUser').and.returnValue(new Observable<User>());
     let myUser = new User();
     myUser.email = 'carlos';
     myUser.password = 'burrito';
 
-    expect(component.login(myUser)).toBe(false);
+    component.login(myUser);
+    expect(service.loginUser).toHaveBeenCalledTimes(0);
   })
 
-  it('should be true because they\'re good input', () => {
-    expect(component.register('ricky@ricky.ricky', 'password', 'password', 'Ricky', 'Wang')).toBe(true);
+  it('should register once', () => {
+    spyOn(service, 'registerUser').and.returnValue(new Observable<User>());
+    let myUser = new User();
+    myUser.email = 'ricky@ricky.ricky';
+    myUser.password = 'password';
+    myUser.confirmPassword = 'password';
+    myUser.firstName = 'Ricky';
+    myUser.lastName = 'Wang';
+
+    component.register(myUser);
+    expect(service.registerUser).toHaveBeenCalledTimes(1);
+    expect(service.registerUser).toHaveBeenCalledWith(myUser);
   });
 
 
-  it('should be false because they\'re empty strings', () => {
-    expect(component.register('', '', '', '', '')).toBe(false);
+  it('shouldn\'t register because there are empty strings', () => {
+    spyOn(service, 'registerUser').and.returnValue(new Observable<User>());
+    let myUser = new User();
+    myUser.email = '';
+    myUser.password = '';
+    myUser.confirmPassword = '';
+    myUser.firstName = '';
+    myUser.lastName = '';
+
+    component.register(myUser);
+    expect(service.registerUser).toHaveBeenCalledTimes(0);
   });
 
-  it('should be false because there is no @ symbol', () => {
-    expect(component.register('carlos', 'burrito', 'burrito', 'Carlos', 'Mendez'))
-    .toBe(false);
+  it('shouldn\'t register because there is no @ symbol', () => {
+    spyOn(service, 'registerUser').and.returnValue(new Observable<User>());
+    let myUser = new User();
+    myUser.email = 'carlos';
+    myUser.password = 'burrito';
+    myUser.confirmPassword = 'burrito';
+    myUser.firstName = 'Carlos';
+    myUser.lastName = 'Mendez';
+
+    component.register(myUser);
+    expect(service.registerUser).toHaveBeenCalledTimes(0);
   });
 
-  it('should be false because the passwords don\'t match', () => {
-    expect(component.register('carlos@email.com', 'burrito', 'burritoSupreme', 'Carlos', 'Mendez'))
-    .toBe(false);
+  it('shouldn\'t register because the passwords don\'t match', () => {
+    spyOn(service, 'registerUser').and.returnValue(new Observable<User>());
+    let myUser = new User();
+    myUser.email = 'carlos@email.com';
+    myUser.password = 'burrito';
+    myUser.confirmPassword = 'burritoSupreme';
+    myUser.firstName = 'Carlos';
+    myUser.lastName = 'Mendez';
+
+    component.register(myUser);
+    expect(service.registerUser).toHaveBeenCalledTimes(0);
   });
 
 });
