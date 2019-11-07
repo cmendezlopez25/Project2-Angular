@@ -8,6 +8,14 @@ button>img {
     margin-right:20px;
 }
 
+#logo-img{
+    position: relative;
+    height: auto; 
+    width: auto; 
+    max-width: 10%;
+    max-height: 10%;
+}
+
 
 /* ============ class ================= */
 .hamburger_btn {
