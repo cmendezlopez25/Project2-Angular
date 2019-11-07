@@ -12,6 +12,8 @@ export class LoginService {
 
   urlList = new UrlList();
 
+  private curUser: User;
+
   loginUrl = this.urlList.loginUrl;
   registerUrl = this.urlList.registerUrl;
 
@@ -23,5 +25,13 @@ export class LoginService {
 
   registerUser(user: User): Observable<User> {
     return this.http.post<User>(this.registerUrl, user);    
+  }
+
+  public setCurUser(user: User) {
+    this.curUser = user;
+  }
+
+  public getCurUser(): User {
+    return this.curUser
   }
 }
