@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {Location} from '@angular/common';  
 
@@ -13,7 +13,7 @@ import { ModalComponent } from './component/modal/modal.component';
 import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
 import { AddModalComponent } from './component/add-modal/add-modal.component';
-
+import { HttpRequestInterceptor } from './pojos/HttpRequestInterceptor'
 import { LoginService } from './service/login.service';
 import { TransactionsComponent } from './component/transactions/transactions.component';
 import { LogoutService } from './service/logout.service';
@@ -42,7 +42,8 @@ import { LogoutService } from './service/logout.service';
   ],
   providers: [
     LoginService,
-    LogoutService
+    LogoutService,
+    [{ provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }],  
   ],
   bootstrap: [AppComponent]
 })
