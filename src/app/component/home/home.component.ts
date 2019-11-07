@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { LoginService } from 'src/app/service/login.service';
 
 
 @Component({
@@ -9,9 +10,11 @@ import { Component, OnInit, Output } from '@angular/core';
 export class HomeComponent implements OnInit {
   @Output() public hideSideBar = false;
   
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
+    console.log("====== curUser from home");
+    console.log(this.loginService.getCurUser());
   }
 
 }
