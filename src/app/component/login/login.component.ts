@@ -41,8 +41,6 @@ export class LoginComponent implements OnInit {
           else {
             this.router.navigate(['/home']);
             this.loginService.setCurUser(res);
-            console.log("curUser");
-            console.log(this.loginService.getCurUser());
           }
         },
         err => {

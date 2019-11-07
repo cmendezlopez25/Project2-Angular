@@ -26,8 +26,6 @@ export class HomeComponent implements OnInit {
     }
     // set account list for current user
     this.accountService.setAccountList(accounts);
-    console.log("=====================showing accounts for loginuser==============");
-    console.log(this.accountService.getAccountList());
   }
 
 }

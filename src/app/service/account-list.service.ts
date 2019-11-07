@@ -3,6 +3,9 @@ import { User } from '../pojos/User';
 import { Account } from '../pojos/Account';
 import { UserRoleAccount } from '../pojos/UserRoleAccount';
 import { Role } from '../pojos/Role';
+import { Observable } from 'rxjs';
+import { UrlList } from '../service/url.list';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -50,10 +53,28 @@ export class AccountListService {
   //   this.relation_6
   // ]
 
-  private accountList = [
-   ];
+  private accountList: Account[];
+  
+  private accUrl = new UrlList().accountUrl;
+  constructor(private http: HttpClient) { 
+    this.getAccountByUser()
+      .subscribe(
+        res => {
+          if (res) {
+            console.log("got account list");
+            this.accountList = res;
+            console.log(this.accountList);
+          }
+        },
+        err => {
+          console.log("Fail to get Account list");
+        }
+      )
+  }
 
-  constructor() { }
+  public getAccountByUser(): Observable<Account[]> {
+    return this.http.get<Account[]>(this.accUrl);
+  }
 
   public getAccountList(): Account[] {
     return this.accountList;
@@ -62,4 +83,5 @@ export class AccountListService {
   public setAccountList(accList: Account[]): void {
     this.accountList = accList;
   }
+
 }
