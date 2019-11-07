@@ -15,9 +15,7 @@
 		</thead>
 		<tbody>
 			<tr class="allTransactions" *ngFor="let transaction of listTransactions">
-				<th scope="row">{{transaction.name}}</th>
-			 	<td>${{transaction.amount}}</td>
-				<td>{{transaction.date.getMonth() + 1}}/{{transaction.date.getDate()}}/{{transaction.date.getFullYear()}}</td>
+				<app-transaction-modal [transaction]="transaction"></app-transaction-modal>
 			</tr>
 		</tbody>  
 	</table>

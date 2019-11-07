@@ -17,6 +17,7 @@ import { AddModalComponent } from './component/add-modal/add-modal.component';
 import { LoginService } from './service/login.service';
 import { TransactionsComponent } from './component/transactions/transactions.component';
 import { LogoutService } from './service/logout.service';
+import { TransactionModalComponent } from './component/transaction-modal/transaction-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LogoutService } from './service/logout.service';
     LoginComponent,
     HomeComponent,
     AddModalComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    TransactionModalComponent
   ],
   imports: [
     BrowserModule,
