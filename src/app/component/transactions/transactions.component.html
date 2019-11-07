@@ -1,0 +1,29 @@
+<main>
+	<div>
+		<h2>
+			Balance: ${{balance}}
+		</h2>		
+	</div>
+	<button id="newTransactionButton" type="button" class="btn btn-lg grn-shadow">+ Add Transaction</button>
+	<table id="transactionList" class="table">
+  		<thead>
+    		<tr>
+      			<th scope="col">Name</th>
+    	  		<th scope="col">Amount</th>
+	      		<th scope="col">Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="allTransactions" *ngFor="let transaction of listTransactions">
+				<th scope="row">{{transaction.name}}</th>
+				<td>{{transaction.amount}}</td>
+				<td>{{transaction.date.getMonth() + 1}}/{{transaction.date.getDate()}}/{{transaction.date.getFullYear()}}</td>
+			</tr>
+		</tbody>  
+	</table>
+	<!--
+		Add edit/delete transaction button
+		Edit will be clicking on the entry
+		Delete will be a separate button
+	-->
+</main>
