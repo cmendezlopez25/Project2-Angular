@@ -1,0 +1,25 @@
+main {
+	margin: auto;
+	width: 99vw;
+	height: 95vh;
+}
+
+thead{
+	background-color: #0b361c;
+	color: white;
+}
+
+h2{
+	background-color: #61d38f;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+#newTransactionButton{
+	float: right;
+}
+
+.allTransactions:hover{
+	background-color: #5fa6cf;
+	cursor: pointer;
+}
