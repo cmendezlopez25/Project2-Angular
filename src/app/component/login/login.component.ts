@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LoginService } from 'src/app/service/login.service';
 import { User } from 'src/app/pojos/User';
 import { Router } from '@angular/router';
@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
 
   loginUser = new User();
   registerUser = new User();
+
+  @Output() public userToHome = new EventEmitter();
 
   login(user: User): void{
     if (!user.email || !user.password) {
@@ -37,7 +39,7 @@ export class LoginComponent implements OnInit {
             console.log(this.loginErrorMsg);
           }
           else {
-            this.router.navigate(['/home']);
+            this.router.navigate(['/home'], {state: res});
             console.log(res);
           }
         },
@@ -73,12 +75,11 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res => {
           if (!res) {
-            console.log("res is null")
             this.registerErrorMsg = "Email is already in use.";
             console.log(this.registerErrorMsg);
           }
           else {
-            this.router.navigate(['/home']);
+            this.router.navigate(['home']);
             console.log(res);
           }
         },
@@ -92,5 +93,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 }

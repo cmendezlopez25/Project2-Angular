@@ -8,6 +8,7 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   @Output() public hideSideBar = false;
+  
   constructor() { }
 
   ngOnInit() {
