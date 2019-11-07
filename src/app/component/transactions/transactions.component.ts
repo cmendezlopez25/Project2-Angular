@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Transaction } from 'src/app/Transaction';
+import { Transaction } from 'src/app/pojos/Transaction';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,6 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class TransactionsComponent implements OnInit {
   balance = 100;
   listTransactions: Transaction[] = [new Transaction("Subway", 100.00), new Transaction("Chipotle", 75.44)];
+  categories: string[] = ["Education", "Food", "Entertainment"]
   closeResult: string;
   modalContent:undefined;
 
