@@ -1,3 +1,5 @@
+import { UserRoleAccount } from './UserRoleAccount';
+
 export class User{
     constructor(
         public email = "", 
@@ -5,6 +7,6 @@ export class User{
         public confirmPassword = "", 
         public firstName = "", 
         public lastName = "",
-        public userRoleAccount = []
+        public userRoleAccounts: UserRoleAccount[] = []
     ) {}
 }

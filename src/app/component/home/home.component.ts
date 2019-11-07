@@ -1,5 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { LoginService } from 'src/app/service/login.service';
+import { User } from 'src/app/pojos/User';
+import { AccountListService } from 'src/app/service/account-list.service';
 
 
 @Component({
@@ -9,12 +11,23 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class HomeComponent implements OnInit {
   @Output() public hideSideBar = false;
+  public loginUser: User = null;
   
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private accountService: AccountListService) { }
 
   ngOnInit() {
-    console.log("====== curUser from home");
-    console.log(this.loginService.getCurUser());
+    // grab current login user
+    this.loginUser = this.loginService.getCurUser();
+    //get account list for user
+    let accounts = [];
+
+    for (let ura of this.loginUser.userRoleAccounts) {
+      accounts.push(ura.account);
+    }
+    // set account list for current user
+    this.accountService.setAccountList(accounts);
+    console.log("=====================showing accounts for loginuser==============");
+    console.log(this.accountService.getAccountList());
   }
 
 }
