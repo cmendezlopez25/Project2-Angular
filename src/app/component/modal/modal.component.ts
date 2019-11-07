@@ -1,7 +1,8 @@
-import {Component, Input} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { RolesService } from 'src/app/service/util/roles.service';
+import { AccountListService } from '../../service/account-list.service'
 
 @Component({
   selector: 'app-modal',
@@ -11,18 +12,21 @@ import { RolesService } from 'src/app/service/util/roles.service';
 export class ModalComponent {
   closeResult: string;
 
-  @Input() public modalTitle="";
-  
-  public roles = this._roles.getRoles();
-  
-  // This is just a placeholder
-  public members = [
-    {email: "Ricky@email.com", role: "Owner"},
-    {email: "Jane@email.com", role: "Admin"},
-    {email: "Jacob@email.com", role: "Moderator"}
-  ];
+  @Input() public account;
 
-  constructor(private modalService: NgbModal, private _roles: RolesService) {}
+  public roles = this._roles.getRoles();
+
+  constructor(
+    private modalService: NgbModal, 
+    private _roles: RolesService,
+    private _accList: AccountListService
+  ) {}
+  
+  ngOnInit() {
+    console.log("printing account in modal");
+    console.log(this.account);
+
+  }
 
   public open(content: string) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -44,7 +48,7 @@ export class ModalComponent {
 
   public deleteAccount() {
     // Placeholder
-    if (confirm("Are you sure you want to delete " + this.modalTitle + "?")) {
+    if (confirm("Are you sure you want to delete " + this.account.accountName + "?")) {
       console.log("yes");
       this.modalService.dismissAll();
     }
