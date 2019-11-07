@@ -9,11 +9,7 @@ button>img {
 }
 
 #logo-img{
-    position: relative;
-    height: auto; 
-    width: auto; 
-    max-width: 10%;
-    max-height: 10%;
+    width: 50%;
 }
 
 
@@ -27,3 +23,6 @@ button>img {
     outline: none;
 }
 
+.navbar-brand{
+    width: 5%; 
+}
