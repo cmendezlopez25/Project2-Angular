@@ -50,8 +50,10 @@ export class AccountListService {
     this.relation_6
   ]
 
-  private accountList = [new Account(1, 'Carlos\' Account', [], this.carlos_relations),
-                        new Account(2, 'Ricky\'s Account', [], this.ricky_relation)];
+  private accountList = [
+    new Account(1, 'Carlos\' Account', [], this.carlos_relations),
+    new Account(2, 'Ricky\'s Account', [], this.ricky_relation)
+  ];
 
   constructor() { }
 

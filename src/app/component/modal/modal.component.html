@@ -11,10 +11,10 @@
 		<div class="modal-body">
 			<table class="table table-borderless">
 					<tr *ngFor="let relation of account.userRoleAccount">
-						<td>{{relation.User.email}}</td>
+						<td>{{relation.user.email}}</td>
 						<td>
 							<select class = "grn-shadow">
-								<option *ngFor="let role of roles" [value]=role [selected]="role == relation.Role.roleName">
+								<option *ngFor="let role of roles" [value]=role [selected]="role == relation.role.roleName">
 									{{role}}
 								</option>
 							</select>
