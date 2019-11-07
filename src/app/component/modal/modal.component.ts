@@ -3,6 +3,9 @@ import {Component, OnInit, Input} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { RolesService } from 'src/app/service/util/roles.service';
 import { AccountListService } from '../../service/account-list.service'
+import { User } from 'src/app/pojos/User';
+import { LoginService } from 'src/app/service/login.service';
+import { UserRoleAccount } from 'src/app/pojos/UserRoleAccount';
 
 @Component({
   selector: 'app-modal',
@@ -13,18 +16,22 @@ export class ModalComponent {
   closeResult: string;
 
   @Input() public account;
+  public loginUser: User = null;
+  public relation:UserRoleAccount[] = [];
 
   public roles = this._roles.getRoles();
 
   constructor(
     private modalService: NgbModal, 
     private _roles: RolesService,
+    private loginService: LoginService
   ) {}
   
   ngOnInit() {
-    console.log("printing account in modal");
-    console.log(this.account);
-
+    this.loginUser = this.loginService.getCurUser();
+    this.relation = this.loginUser.userRoleAccounts;
+    console.log("inside of modal "+this.account.accountName);
+    console.log(this.relation);
   }
 
   public open(content: string) {
