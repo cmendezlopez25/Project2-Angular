@@ -19,7 +19,6 @@ export class ModalComponent {
   constructor(
     private modalService: NgbModal, 
     private _roles: RolesService,
-    private _accList: AccountListService
   ) {}
   
   ngOnInit() {
