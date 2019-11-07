@@ -19,11 +19,7 @@ h2{
 	float: right;
 }
 
-.allTransactions{
-	border: 2px solid red;
-	background-color: blue;
-}
-
-.allTransactions th:hover{
-	background-color: red;
+.allTransactions:hover{
+	background-color: #5fa6cf;
+	cursor: pointer;
 }
