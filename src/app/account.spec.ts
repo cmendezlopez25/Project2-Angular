@@ -1,4 +1,4 @@
-import { Account } from './Account';
+import { Account } from './pojos/Account';
 
 describe('Account', () => {
   it('should create an instance', () => {

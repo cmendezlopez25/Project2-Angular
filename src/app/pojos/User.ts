@@ -4,6 +4,7 @@ export class User{
         public password = "", 
         public confirmPassword = "", 
         public firstName = "", 
-        public lastName = ""
+        public lastName = "",
+        public userRoleAccount = []
     ) {}
 }

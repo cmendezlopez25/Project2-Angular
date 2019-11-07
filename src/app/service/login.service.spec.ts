@@ -5,7 +5,7 @@ import { LoginService } from './login.service';
 import { Component, DebugElement } from '@angular/core';
 import { LoginComponent } from '../component/login/login.component';
 import { Observable } from 'rxjs';
-import { User } from '../user';
+import { User } from '../pojos/User';
 
 describe('LoginService', () => {
   let component: LoginComponent;

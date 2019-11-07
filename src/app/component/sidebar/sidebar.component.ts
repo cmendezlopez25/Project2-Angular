@@ -25,11 +25,9 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.accountList = this.accList.getAccountList();
-    console.log(this.accountList);
   }
 
   public getAccountName(event) {
     this.selectedAccount = event.target.innerText;
-    console.log(this.selectedAccount);
   }
 }
