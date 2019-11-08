@@ -55,3 +55,8 @@ main{
     padding-top: 1cm;
     width: 100%;
 }
+
+.password-check{
+    text-align: left;
+    margin-left: 10%;
+}
