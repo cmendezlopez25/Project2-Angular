@@ -20,9 +20,10 @@ export class HomeComponent implements OnInit {
     this.loginUser = this.loginService.getCurUser();
     //get account list for user
     let accounts = [];
-
-    for (let ura of this.loginUser.userRoleAccounts) {
-      accounts.push(ura.account);
+    if (this.loginUser) {
+      for (let ura of this.loginUser.userRoleAccounts) {
+        accounts.push(ura.account);
+      }
     }
     // set account list for current user
     this.accountService.setAccountList(accounts);

@@ -93,7 +93,6 @@ export class LoginComponent implements OnInit {
   }
 
   switchBool() : void{
-    console.log("trying to view password");
     this.viewPassword = !this.viewPassword;
     this.passwordType = this.viewPassword ? "text" : "password";
   }

@@ -7,12 +7,15 @@
 			</button>
 		</div>
 		<div class="modal-body">
-            <form>
+            <form >
                 <div class="container">
-                    <h6 for="newAccName">Account Name</h6>
+                    <h6 for="newAccName">Account Name</h6>  
+                    <div *ngIf="errorMsg" class="container mb-2">
+                            <span class="error-msg">{{errorMsg}}</span>
+                        </div>
                     <br>
                     <div class="container input-group input-group-lg">
-                        <input type="text" class="form-control grn-shadow" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="account name"/>
+                        <input [(ngModel)]="newAccountName" name="accountName" type="text" aria-label="Large" aria-describedby="inputGroup-sizing-sm" class="form-control grn-shadow"  placeholder="account name"/>
                     </div>
                     <hr/>
                 </div>
@@ -27,11 +30,11 @@
                         <tr>
                             <td>
                                 <div class="input-group mb-3">
-                                    <input type="email" class="form-control grn-shadow" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="example@email.com"/>
+                                    <input [(ngModel)]="userEmail" type="email" name="userEmail" class="form-control grn-shadow" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="example@email.com"/>
                                 </div>
                             </td>
                             <td>
-                                <select class="custom-select grn-shadow">
+                                <select [(ngModel)]="role" name="role" class="custom-select grn-shadow">
                                     <option *ngFor="let role of roles" [value]=role>
                                         {{role}}
                                     </option>
@@ -46,7 +49,7 @@
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn grn-shadow" (click)="modal.close('Close clicked')">Close</button>
-			<button type="button" class="btn grn-shadow">Save</button>
+			<button type="button" class="btn grn-shadow" (click)="getNewAccInfo()">Save</button>
 		</div>
 	</form>
 </ng-template>

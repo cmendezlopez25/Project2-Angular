@@ -3,6 +3,6 @@ export class UrlList{
     registerUrl = 'http://localhost:8080/Project2/register';
     loginUrl =  'http://localhost:8080/Project2/login';
     logoutUrl = 'http://localhost:8080/Project2/logout';
-    accountUrl = 'http://localhost:8080/Project2/account'
+    accountUrl = 'http://localhost:8080/Project2/account';
     homeUrl = "home";
 }

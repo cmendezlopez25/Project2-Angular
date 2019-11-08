@@ -1,32 +1,39 @@
 
-  .add-btn:hover {
-    border-color: #42ac6d;
-    color:#fff;
-    background-color:#42ac6d;
-  }
+.add-btn:hover {
+  border-color: #42ac6d;
+  color:#fff;
+  background-color:#42ac6d;
+}
 
-  .add-btn {
-    color: #42ac6d;
-    background-color: transparent;
-    border-color: #42ac6d;
-    margin-bottom: 10px;
-  }
+.add-btn {
+  color: #42ac6d;
+  background-color: transparent;
+  border-color: #42ac6d;
+  margin-bottom: 10px;
+}
 
-  .add-btn:active {
-    border-color: #42ac6d;
-    color:#fff;
-    background-color:#42ac6d;
-  }
+.add-btn:active {
+  border-color: #42ac6d;
+  color:#fff;
+  background-color:#42ac6d;
+}
 
-  .remove-btn {
-    background:none;
-    border:none;
-    margin:0;
-    padding:0;
-    color: red;
+.remove-btn {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  color: red;
 }
 
 .btn.focus, .btn:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0rem;
+  outline: 0;
+  box-shadow: 0 0 0 0rem;
+}
+
+.error-msg {
+font-size: 15px;
+border: 2px red solid;
+color: red;
+padding:2px;
 }

@@ -7,5 +7,7 @@ export class Account {
         public transactions = [],
         public userRoleAccounts: UserRoleAccount[] = []
     ){}
-
+    public setRelation(relation: UserRoleAccount[]): void {
+        this.userRoleAccounts = relation;
+    }
 }
