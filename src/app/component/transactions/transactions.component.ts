@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from 'src/app/pojos/Transaction';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TransactionListService } from 'src/app/service/transaction-list.service';
+import { Account } from 'src/app/pojos/Account';
 
 @Component({
   selector: 'app-transactions',
@@ -9,7 +11,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class TransactionsComponent implements OnInit {
   balance = 100;
-  listTransactions: Transaction[] = [new Transaction(-1, -1, "Subway", 100.00), new Transaction(-1, -1, "Chipotle", 75.44)];
+  listTransactions: Transaction[];
   categories: string[] = ["Education", "Food", "Entertainment"];
   closeResult: string;
   modalContent:Transaction;
@@ -19,16 +21,35 @@ export class TransactionsComponent implements OnInit {
     if (this.listTransactions.includes(this.modalContent)){
       console.log(this.modalContent);
       console.log("This is an edit.");
+      this.transactionService.updateTransaction(this.modalContent)
+      .subscribe(
+        res => {
+          console.log("Successfully edited.");
+        },
+        err => {
+          console.log(err);
+        });
     }
     else{
-      console.log(this.modalContent);
-      console.log("This is a new transaction.")
-      this.listTransactions.push(this.modalContent);
+      console.log("This is a new transaction.");
+      this.modalContent.account = new Account(1, "", null, null);
+
+      this.transactionService.createTransaction(this.modalContent)
+      .subscribe(
+        res => {
+          console.log("Successfully created.");
+          this.modalContent = res;
+          this.listTransactions.push(this.modalContent);
+        },
+        err => {
+          console.log(err);
+        });
     }
+    this.calculateNewBalance();
   }
   
   deleteTransaction(event: MouseEvent){
-    //event.target
+    console.log("deleted");
   }
 
   cancelTransaction(){
@@ -40,14 +61,35 @@ export class TransactionsComponent implements OnInit {
   }
 
   changeDate(e){
-    e = e.target.value.split('-');
-    let d = new Date(Date.UTC(e[0], e[1]-1, e[2]));
-    this.modalContent.date.setFullYear(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+    //e = e.target.value.split('-');
+    //let d = new Date(Date.UTC(e[0], e[1]-1, e[2]));
+    //this.modalContent.date.setFullYear(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
   }
 
-  constructor(private modalService: NgbModal) { console.log(this.listTransactions)}
+  calculateNewBalance(){
+    this.balance = 0;
+    for(let transaction of this.listTransactions){
+      this.balance += transaction.amount;
+    }
+  }
+
+  constructor(private modalService: NgbModal, private transactionService: TransactionListService) { console.log(this.listTransactions)}
 
   ngOnInit() {
+    this.transactionService.getAllTransactionsByAccountId(1).subscribe(
+      res => {
+        console.log(res);
+        this.listTransactions = res;
+        for (let transaction of this.listTransactions){
+          let dateString = transaction.date.toString();
+          transaction.date = dateString;
+        }
+        this.calculateNewBalance();
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   open(content, transaction, isNew: boolean) {
@@ -58,9 +100,9 @@ export class TransactionsComponent implements OnInit {
     this.currTransaction = new Transaction(
       transaction.id,
       transaction.accountId,
-      transaction.name,
+      transaction.transactionName,
       transaction.amount,
-      new Date(transaction.date),
+      transaction.date,
       transaction.note
     );
     
