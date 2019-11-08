@@ -7,6 +7,7 @@ import { Account } from 'src/app/pojos/Account';
 import { UserRoleAccount } from 'src/app/pojos/UserRoleAccount';
 import { User } from 'src/app/pojos/User';
 import { Role } from 'src/app/pojos/Role';
+import { Transaction } from 'src/app/pojos/Transaction';
 import { AddAccountService } from 'src/app/service/add-account.service';
 
 @Component({
@@ -69,9 +70,11 @@ export class AddModalComponent implements OnInit {
       newUser = new User(this.userEmail);
       newRole = new Role(Role.getRoleId(this.role), this.role, []);
       relation = new UserRoleAccount(-1, newUser, newRole, null);
-      newAccount.setRelation([relation]);
+      let uraList = [];
+      uraList.push(relation);
+      newAccount.setRelation(uraList);
     }
-    console.log(newAccount);
+    // console.log(newAccount);
     this.addAccountService.createAccount(newAccount)
       .subscribe(
         res => {
