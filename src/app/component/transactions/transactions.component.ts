@@ -9,13 +9,34 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class TransactionsComponent implements OnInit {
   balance = 100;
-  listTransactions: Transaction[] = [new Transaction("Subway", 100.00), new Transaction("Chipotle", 75.44)];
-  categories: string[] = ["Education", "Food", "Entertainment"]
+  listTransactions: Transaction[] = [new Transaction(-1, -1, "Subway", 100.00), new Transaction(-1, -1, "Chipotle", 75.44)];
+  categories: string[] = ["Education", "Food", "Entertainment"];
   closeResult: string;
   modalContent:undefined;
+  currTransaction: Transaction;
+
+  saveTransaction(){
+    if (this.listTransactions.includes(this.modalContent)){
+      console.log(this.modalContent);
+      console.log("This is an edit.");
+    }
+    else{
+      console.log(this.modalContent);
+      console.log("This is a new transaction.")
+      this.listTransactions.push(this.modalContent);
+    }
+  }
   
   deleteTransaction(event: MouseEvent){
     //event.target
+  }
+
+  cancelTransaction(){
+    console.log("I am cancelling my subscription.")
+    if (this.listTransactions.includes(this.modalContent)){
+      let index = this.listTransactions.indexOf(this.modalContent);
+      this.listTransactions[index] = this.currTransaction;
+    }
   }
 
   constructor(private modalService: NgbModal) { console.log(this.listTransactions)}
@@ -23,7 +44,20 @@ export class TransactionsComponent implements OnInit {
   ngOnInit() {
   }
 
-  open(content, transaction) {
+  open(content, transaction, isNew: boolean) {
+    if (isNew){
+      transaction = new Transaction();
+    }
+
+    this.currTransaction = new Transaction(
+      transaction.id,
+      transaction.accountId,
+      transaction.name,
+      transaction.amount,
+      transaction.date,
+      transaction.note
+    );
+    
     this.modalContent = transaction;
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
   }
