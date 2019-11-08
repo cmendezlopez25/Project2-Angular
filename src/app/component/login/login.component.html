@@ -13,10 +13,10 @@
                     <input [(ngModel)]="loginUser.email" id="email" class="form-control grn-shadow" placeholder="Enter your email">
                 </div>
                 <div class="input-group mb-3">
-                    <input [(ngModel)]="loginUser.password" id="password" class="form-control grn-shadow" [type] = "passwordType" placeholder="Enter your password">
+                    <input [(ngModel)]="loginUser.password" id="password" class="form-control grn-shadow" [type] = passwordType placeholder="Enter your password">
                 </div>
                 <div class="password-check form mb-3">
-                    <input type="checkbox" [(ngModel)]="viewPassword" (click) = "switchBool">
+                    <input type="checkbox" (click) = "switchBool()">
                     Show Password
                 </div>
                 <div>
@@ -36,10 +36,14 @@
                     <input [(ngModel)]="registerUser.lastName"id="newLastName" class="form-control grn-shadow" placeholder="Last name">
                 </div>
                 <div class="input-group mb-3">
-                    <input [(ngModel)]="registerUser.password" id="newPassword" class="form-control grn-shadow" type="password" placeholder="Password">
-                    <input [(ngModel)]="registerUser.confirmPassword" id="confirmPassword" class="form-control grn-shadow" type="password"
+                    <input [(ngModel)]="registerUser.password" id="newPassword" class="form-control grn-shadow" [type] = passwordType placeholder="Password">
+                    <input [(ngModel)]="registerUser.confirmPassword" id="confirmPassword" class="form-control grn-shadow" [type] = passwordType
                         placeholder="Confirm password">
                 </div>
+                <div class="password-check form mb-3">
+                        <input type="checkbox" (click) = "switchBool()">
+                        Show Password
+                    </div>
                 <div>
                     <button class="btn btn-lg grn-shadow" type="button" (click)="register(registerUser)">Create Account</button>
                 </div>
