@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { RolesService } from 'src/app/service/util/roles.service';
+import { Account } from 'src/app/pojos/Account';
+import { UserRoleAccount } from 'src/app/pojos/UserRoleAccount';
+import { User } from 'src/app/pojos/User';
+import { Role } from 'src/app/pojos/Role';
+import { Transaction } from 'src/app/pojos/Transaction';
+import { AddAccountService } from 'src/app/service/add-account.service';
 
 @Component({
   selector: 'app-add-modal',
@@ -11,8 +18,18 @@ import { RolesService } from 'src/app/service/util/roles.service';
 export class AddModalComponent implements OnInit {
   closeResult: string;
   public roles = this._roles.getRoles();
+
+  public newAccountName = "";
+  public userEmail = "";
+  public role = "";
   
-  constructor(private modalService: NgbModal, private _roles: RolesService) { }
+  public errorMsg = "";
+  constructor(
+    private modalService: NgbModal, 
+    private _roles: RolesService,
+    private addAccountService: AddAccountService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
   }
@@ -26,6 +43,10 @@ export class AddModalComponent implements OnInit {
   }
 
   private getDismissReason(reason: any): string {
+    this.errorMsg = "";
+    this.newAccountName = "";
+    this.userEmail = "";
+    this.role = "";
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
@@ -33,6 +54,41 @@ export class AddModalComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  public getNewAccInfo() {
+    let relation;
+    let newAccount;
+    let newUser;
+    let newRole;
+    if (this.newAccountName === "") {
+      this.errorMsg = "Invalid Account Name";
+    }
+
+    newAccount = new Account(-1, this.newAccountName, [], []);
+    if (this.userEmail) {
+      newUser = new User(this.userEmail, " ");
+      newRole = new Role(Role.getRoleId(this.role), this.role, []);
+      relation = new UserRoleAccount(-1, newUser, newRole, null);
+      let uraList = [];
+      uraList.push(relation);
+      newAccount.setRelation(uraList);
+    }
+    // console.log(newAccount);
+    this.addAccountService.createAccount(newAccount)
+      .subscribe(
+        res => {
+          if (res) {
+            console.log("going to redirect");
+            console.log(res);
+            window.location.reload();
+          }
+        },
+        err => {
+          this.errorMsg = "Failed to create account.";
+          console.log(err);
+        }
+      )
   }
 
 }
