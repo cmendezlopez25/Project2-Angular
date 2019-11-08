@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { RolesService } from 'src/app/service/util/roles.service';
@@ -26,6 +27,7 @@ export class AddModalComponent implements OnInit {
     private modalService: NgbModal, 
     private _roles: RolesService,
     private addAccountService: AddAccountService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -62,7 +64,7 @@ export class AddModalComponent implements OnInit {
       this.errorMsg = "Invalid Account Name";
     }
 
-    newAccount = new Account(-1, this.newAccountName, null, null);
+    newAccount = new Account(-1, this.newAccountName, [], []);
     if (this.userEmail) {
       newUser = new User(this.userEmail);
       newRole = new Role(Role.getRoleId(this.role), this.role, []);
@@ -75,6 +77,7 @@ export class AddModalComponent implements OnInit {
         res => {
           if (res) {
             console.log(res);
+            this.router.navigate(['home']);
           }
         },
         err => {

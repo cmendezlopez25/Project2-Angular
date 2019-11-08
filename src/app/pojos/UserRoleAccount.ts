@@ -1,8 +1,11 @@
+import { User } from './User';
+import { Role } from './Role';
+
 export class UserRoleAccount {
     constructor (
-        public id = -1,
-        public user = null,
-        public role = null,
-        public account = null
+        public uraId = -1,
+        public user: User = null,
+        public role: Role = null,
+        public account: Account = null
     ) {}
 }

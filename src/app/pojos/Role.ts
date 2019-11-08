@@ -1,8 +1,10 @@
+import { UserRoleAccount } from './UserRoleAccount';
+
 export class Role {
     constructor(
-        public id = -1,
+        public roleId = -1,
         public roleName = "",
-        public userRoleAccount = [], 
+        public userRoleAccounts: UserRoleAccount[] = [], 
     ){}
     static getRoleId(role: string){
         if (role == "Owner") return 1;
