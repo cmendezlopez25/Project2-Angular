@@ -4,5 +4,6 @@ export class UrlList{
     loginUrl =  'http://localhost:8080/Project2/login';
     logoutUrl = 'http://localhost:8080/Project2/logout';
     accountUrl = 'http://localhost:8080/Project2/account';
+    transactionUrl = 'http://localhost:8080/Project2/transaction';
     homeUrl = "home";
 }
