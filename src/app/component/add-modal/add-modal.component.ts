@@ -67,7 +67,7 @@ export class AddModalComponent implements OnInit {
 
     newAccount = new Account(-1, this.newAccountName, [], []);
     if (this.userEmail) {
-      newUser = new User(this.userEmail);
+      newUser = new User(this.userEmail, " ");
       newRole = new Role(Role.getRoleId(this.role), this.role, []);
       relation = new UserRoleAccount(-1, newUser, newRole, null);
       let uraList = [];
@@ -79,8 +79,9 @@ export class AddModalComponent implements OnInit {
       .subscribe(
         res => {
           if (res) {
+            console.log("going to redirect");
             console.log(res);
-            this.router.navigate(['home']);
+            window.location.reload();
           }
         },
         err => {
