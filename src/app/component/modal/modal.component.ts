@@ -4,6 +4,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { RolesService } from 'src/app/service/util/roles.service';
 import { AccountListService } from '../../service/account-list.service'
 import { User } from 'src/app/pojos/User';
+import { Account } from 'src/app/pojos/Account';
 import { LoginService } from 'src/app/service/login.service';
 import { UserRoleAccount } from 'src/app/pojos/UserRoleAccount';
 
@@ -15,9 +16,9 @@ import { UserRoleAccount } from 'src/app/pojos/UserRoleAccount';
 export class ModalComponent {
   closeResult: string;
 
-  @Input() public account;
+  @Input() public account: Account;
   public loginUser: User = null;
-  public relations:UserRoleAccount[] = [];
+  public selectedAccount: Account;
 
   public roles = this._roles.getRoles();
 
@@ -29,9 +30,7 @@ export class ModalComponent {
   
   ngOnInit() {
     this.loginUser = this.loginService.getCurUser();
-    this.relations = this.loginUser.userRoleAccounts;
-    console.log("inside of modal "+this.account.accountName);
-    console.log(this.account);
+
   }
 
   public open(content: string) {
@@ -40,6 +39,9 @@ export class ModalComponent {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+    this.selectedAccount = this.account;
+    console.log("selected")
+    console.log(this.selectedAccount);
   }
 
   private getDismissReason(reason: any): string {
@@ -54,7 +56,7 @@ export class ModalComponent {
 
   public deleteAccount() {
     // Placeholder
-    if (confirm("Are you sure you want to delete " + this.account.accountName + "?")) {
+    if (confirm("Are you sure you want to delete " + this.account + "?")) {
       console.log("yes");
       this.modalService.dismissAll();
     }

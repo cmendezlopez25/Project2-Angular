@@ -10,7 +10,7 @@
 		</div>
 		<div class="modal-body">
 			<table class="table table-borderless">
-					<tr *ngFor="let relation of relations">
+					<tr *ngFor="let relation of selectedAccount.userRoleAccounts">
 						<td>{{relation.user.email}}</td>
 						<td>
 							<select class = "grn-shadow">

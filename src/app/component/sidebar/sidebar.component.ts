@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AccountListService } from 'src/app/service/account-list.service';
 import { User } from 'src/app/pojos/User';
+import { Account } from 'src/app/pojos/Account';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class SidebarComponent implements OnInit {
 
   public loginUser: User = null;
   public selectedAccount = "";
-  public accountList = [];
+  public accountList: Account[];
   public showStyle = {
     width: "250px"
   }
@@ -26,17 +27,23 @@ export class SidebarComponent implements OnInit {
     private loginService: LoginService,
     private accountService: AccountListService,
     ) {
-    
-  }
+      this.loginUser = loginService.getCurUser();
+    }
 
   ngOnInit() {
-    this.loginUser = this.loginService.getCurUser();
-    for (let account of this.accountService.getAccountList()) {
-      this.accountList.push(account);
-    }
-    console.log("login user of side bar==============");
-    console.log(this.loginUser);
-    console.log(this.accountList);
+    this.accountService.getAccountByUser()
+      .subscribe(
+        res => {
+          if (res) {
+            this.accountList = res;
+            console.log("printing accoutn list from side bar");
+            console.log(this.accountList);
+          }
+        },
+        err => {
+          console.log("Fail to get Account list");
+        }
+      )
   }
 
   public getAccountName(event) {

@@ -9,21 +9,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AccountListService {
 
-  private accountList: Account[];
+  public accountList: any;
   
   private accUrl = new UrlList().accountUrl;
   constructor(private http: HttpClient) { 
-    this.getAccountByUser()
-      .subscribe(
-        res => {
-          if (res) {
-            this.accountList = res;
-          }
-        },
-        err => {
-          console.log("Fail to get Account list");
-        }
-      )
+
   }
 
   public getAccountByUser(): Observable<Account[]> {
@@ -31,6 +21,8 @@ export class AccountListService {
   }
 
   public getAccountList(): Account[] {
+    console.log("goint to return from account service")
+    console.log(this.accountList);
     return this.accountList;
   }
 
