@@ -10,7 +10,8 @@
     		<tr>
       			<th scope="col">Name</th>
     	  		<th scope="col">Amount</th>
-	      		<th scope="col">Date</th>
+				<th scope="col">Date</th>
+				<th scope="col"></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,6 +19,7 @@
 				<th scope="row">{{transaction.name}}</th>
 				<td>${{transaction.amount}}</td>
 				<td>{{transaction.date.getMonth() + 1}}/{{transaction.date.getDate()}}/{{transaction.date.getFullYear()}}</td>
+				<td><button class="btn-danger">X</button></td>
 			</tr>
 		</tbody>  
 	</table>

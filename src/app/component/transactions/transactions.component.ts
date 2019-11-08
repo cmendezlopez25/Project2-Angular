@@ -13,6 +13,10 @@ export class TransactionsComponent implements OnInit {
   categories: string[] = ["Education", "Food", "Entertainment"]
   closeResult: string;
   modalContent:undefined;
+  
+  deleteTransaction(event: MouseEvent){
+    //event.target
+  }
 
   constructor(private modalService: NgbModal) { console.log(this.listTransactions)}
 
