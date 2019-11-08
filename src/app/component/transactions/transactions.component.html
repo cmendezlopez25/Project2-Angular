@@ -46,7 +46,7 @@
 				<div class="form-group row">
 					<label for="trans-date" class="col-sm-3 col-form-label">Date</label>
 					<div class="col-sm-3">
-						<input id="trans-date" type="date" [(ngModel)]="modalContent.date" [ngModelOptions]="{standalone: true}"/>
+						<input id="trans-date" type="date" (change)="changeDate($event)"/>
 					</div>
 				</div>
 				<div class="form-group row">

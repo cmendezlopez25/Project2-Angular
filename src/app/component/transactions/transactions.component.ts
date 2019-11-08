@@ -12,7 +12,7 @@ export class TransactionsComponent implements OnInit {
   listTransactions: Transaction[] = [new Transaction(-1, -1, "Subway", 100.00), new Transaction(-1, -1, "Chipotle", 75.44)];
   categories: string[] = ["Education", "Food", "Entertainment"];
   closeResult: string;
-  modalContent:undefined;
+  modalContent:Transaction;
   currTransaction: Transaction;
 
   saveTransaction(){
@@ -39,6 +39,12 @@ export class TransactionsComponent implements OnInit {
     }
   }
 
+  changeDate(e){
+    e = e.target.value.split('-');
+    let d = new Date(Date.UTC(e[0], e[1]-1, e[2]));
+    this.modalContent.date.setFullYear(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+  }
+
   constructor(private modalService: NgbModal) { console.log(this.listTransactions)}
 
   ngOnInit() {
@@ -54,7 +60,7 @@ export class TransactionsComponent implements OnInit {
       transaction.accountId,
       transaction.name,
       transaction.amount,
-      transaction.date,
+      new Date(transaction.date),
       transaction.note
     );
     
