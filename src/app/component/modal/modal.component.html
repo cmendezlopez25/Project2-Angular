@@ -24,11 +24,11 @@
 			</table>
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-danger mr-auto" (click)="deleteAccount()">Delete</button>
+			<button type="button" class="btn-danger mr-auto" (click)="deleteAccount()">Delete</button>
 			<button type="button" class="btn grn-shadow" (click)="modal.close('Close clicked')">Close</button>
 			<button type="button" class="btn grn-shadow" (click)="saveAccount()">Save</button>
 		</div>
 	</form>
 </ng-template>
 
-<button class="btn btn-lg" (click)="open(content)" style="color: white">{{account.accountName}}</button>
+<button class="btn-trans btn-lg" (click)="open(content)" style="color: white">{{account.accountName}}</button>
