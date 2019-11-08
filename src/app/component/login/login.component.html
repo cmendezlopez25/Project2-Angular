@@ -16,7 +16,7 @@
                     <input [(ngModel)]="loginUser.password" id="password" class="form-control grn-shadow" [type] = "passwordType" placeholder="Enter your password">
                 </div>
                 <div class="password-check form mb-3">
-                    <input type="checkbox"> 
+                    <mat-checkbox type="checkbox" [(ngModel)]="viewPassword"> 
                     Show Password
                 </div>
                 <div>
