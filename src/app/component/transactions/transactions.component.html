@@ -29,7 +29,7 @@
 	<form>
 		<div class="modal-header">
 			<h5 class="modal-title" id="modal-basic-title">
-				<input type="text" [(ngModel)]="modalContent.name" [ngModelOptions]="{standalone: true}" placeholder="Transaction Name"/>
+				<input type="text" [(ngModel)]="modalContent.transactionName" [ngModelOptions]="{standalone: true}" placeholder="Transaction Name"/>
 			</h5>
 			<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); cancelTransaction()">
 				<span aria-hidden="true">&times;</span>

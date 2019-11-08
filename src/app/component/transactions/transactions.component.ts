@@ -10,7 +10,7 @@ import { Account } from 'src/app/pojos/Account';
   styleUrls: ['./transactions.component.css']
 })
 export class TransactionsComponent implements OnInit {
-  balance = 100;
+  balance = 0;
   listTransactions: Transaction[];
   categories: string[] = ["Education", "Food", "Entertainment"];
   closeResult: string;
@@ -21,29 +21,29 @@ export class TransactionsComponent implements OnInit {
     if (this.listTransactions.includes(this.modalContent)){
       console.log(this.modalContent);
       console.log("This is an edit.");
-      this.transactionService.updateTransaction(this.modalContent)
-      .subscribe(
-        res => {
-          console.log("Successfully edited.");
-        },
-        err => {
-          console.log(err);
-        });
+      //this.transactionService.updateTransaction(this.modalContent)
+      //.subscribe(
+      //  res => {
+      //    console.log("Successfully edited.");
+      //  },
+      //  err => {
+      //    console.log(err);
+      //  });
     }
     else{
       console.log("This is a new transaction.");
       this.modalContent.account = new Account(1, "", null, null);
-
-      this.transactionService.createTransaction(this.modalContent)
-      .subscribe(
-        res => {
-          console.log("Successfully created.");
-          this.modalContent = res;
+      console.log(this.modalContent);
+      //this.transactionService.createTransaction(this.modalContent)
+      //.subscribe(
+      //  res => {
+      //    console.log("Successfully created.");
+      //    this.modalContent = res;
           this.listTransactions.push(this.modalContent);
-        },
-        err => {
-          console.log(err);
-        });
+      //  },
+      //  err => {
+      //    console.log(err);
+      //  });
     }
     this.calculateNewBalance();
   }
@@ -61,7 +61,8 @@ export class TransactionsComponent implements OnInit {
   }
 
   changeDate(e){
-    //e = e.target.value.split('-');
+    e = e.target.value;
+    this.modalContent.date = e;
     //let d = new Date(Date.UTC(e[0], e[1]-1, e[2]));
     //this.modalContent.date.setFullYear(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
   }
