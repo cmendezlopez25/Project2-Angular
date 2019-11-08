@@ -17,7 +17,7 @@ export class ModalComponent {
 
   @Input() public account;
   public loginUser: User = null;
-  public relation:UserRoleAccount[] = [];
+  public relations:UserRoleAccount[] = [];
 
   public roles = this._roles.getRoles();
 
@@ -29,9 +29,9 @@ export class ModalComponent {
   
   ngOnInit() {
     this.loginUser = this.loginService.getCurUser();
-    this.relation = this.loginUser.userRoleAccounts;
+    this.relations = this.loginUser.userRoleAccounts;
     console.log("inside of modal "+this.account.accountName);
-    console.log(this.relation);
+    console.log(this.account);
   }
 
   public open(content: string) {

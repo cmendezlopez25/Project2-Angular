@@ -22,17 +22,21 @@ export class SidebarComponent implements OnInit {
     width: "0px"
   }
 
-  constructor(private loginService: LoginService) {
+  constructor(
+    private loginService: LoginService,
+    private accountService: AccountListService,
+    ) {
     
   }
 
   ngOnInit() {
     this.loginUser = this.loginService.getCurUser();
-    for (let relation of this.loginService.getCurUser().userRoleAccounts) {
-      this.accountList.push(relation.account);
+    for (let account of this.accountService.getAccountList()) {
+      this.accountList.push(account);
     }
     console.log("login user of side bar==============");
     console.log(this.loginUser);
+    console.log(this.accountList);
   }
 
   public getAccountName(event) {
