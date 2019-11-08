@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   registerUser = new User();
 
   viewPassword = false;
-  passwordType: string;
+  passwordType = "password";
 
   @Output() public userToHome = new EventEmitter();
 
@@ -92,11 +92,10 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  switchBool(): boolean {
-    return !this.viewPassword;
+  switchBool() : void{
+    this.viewPassword = !this.viewPassword;
+    this.passwordType = this.viewPassword ? "text" : "password";
   }
-
-  
 
   constructor(private loginService: LoginService, private router: Router) { }
 
