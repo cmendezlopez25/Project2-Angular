@@ -15,11 +15,15 @@ h2{
 	padding-bottom: 10px;
 }
 
-#newTransactionButton{
-	float: right;
+tr{
+	text-align: center;
 }
 
 .allTransactions:hover{
 	background-color: #5fa6cf;
 	cursor: pointer;
+}
+
+#newTransactionButton{
+	float: right;
 }

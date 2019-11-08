@@ -15,6 +15,9 @@ export class LoginComponent implements OnInit {
   loginUser = new User();
   registerUser = new User();
 
+  viewPassword = false;
+  passwordType: string;
+
   @Output() public userToHome = new EventEmitter();
 
   login(user: User): void{
@@ -88,6 +91,12 @@ export class LoginComponent implements OnInit {
         }
       );
   }
+
+  switchBool(): boolean {
+    return !this.viewPassword;
+  }
+
+  
 
   constructor(private loginService: LoginService, private router: Router) { }
 

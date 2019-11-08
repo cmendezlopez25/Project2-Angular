@@ -1,7 +1,7 @@
 <main class="bg-color">
     <div id="login-register" class="card">
         <div id="logo" class="card-header">
-            <img id="logo-img" src="https://pngimage.net/wp-content/uploads/2018/06/kirby-star-png-6.png">
+            <img id="logo-img" src="../../assets/icon/logo.png">
         </div>
         <div class="card-body">
             <div id="login" class="txt-ctr">
@@ -13,7 +13,11 @@
                     <input [(ngModel)]="loginUser.email" id="email" class="form-control grn-shadow" placeholder="Enter your email">
                 </div>
                 <div class="input-group mb-3">
-                    <input [(ngModel)]="loginUser.password" id="password" class="form-control grn-shadow" type="password" placeholder="Enter your password">
+                    <input [(ngModel)]="loginUser.password" id="password" class="form-control grn-shadow" [type] = "passwordType" placeholder="Enter your password">
+                </div>
+                <div class="password-check form mb-3">
+                    <input type="checkbox" [(ngModel)]="viewPassword"> 
+                    Show Password
                 </div>
                 <div>
                     <button class="btn btn-lg grn-shadow" (click)="login(loginUser)">Login</button>
