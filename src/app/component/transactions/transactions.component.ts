@@ -82,7 +82,11 @@ export class TransactionsComponent implements OnInit {
         console.log(res);
         this.listTransactions = res;
         for (let transaction of this.listTransactions){
-          let dateString = transaction.date.toString();
+          console.log(transaction);
+          let month = new Date().getMonth() + 1;
+          let day = new Date().getDate();
+          let year = new Date().getFullYear();
+          let dateString = year + "-" + month + "-" + day;
           transaction.date = dateString;
         }
         this.calculateNewBalance();
